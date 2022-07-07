@@ -1,38 +1,218 @@
-.App {
+@media screen and (max-width: 4000px){
+  body{
+    margin: 10px;
+    
+    padding: 10px;
+    align-items: center;
+    align-content: center;
+    background-color: white;
+    user-select: none;
+    font-family: 'Titillium Web', "Kdam Thmor Pro";
+  }
+  
+  .App-header {
+    background-color: #282c34;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+  }
+  
+  .flexbox {
+    border: black solid 1px;
+    display: flex;
+    flex: 1;
+    flex-wrap: nowrap;
+    padding: 5px;
+    justify-content: center;
+    align-content: center;
+  }
+  
+  .App-link {
+    color: #61dafb;
+  }
+  
+  label {
+    font-weight: bold;
+  }
+  
+  .userBox {
+    display: inline-block;
+    margin-left: 1px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    padding: 10px;
+    text-align: center;
+    user-select: none;
+    cursor: pointer;
+  }
+  
+  #priceDis {
+    font-size: 12px;
+    color:gray;
+  }
+  
+  #link {
+    color: gray;
+    text-decoration: none;
+    font-size: 15px;
+  }
+  
+  #link:hover {
+    color: #246EB9;
+  }
+
+ /* Flexbox */
+#box3, #box2 {
+    display: flex;
+    flex-direction: row;
+}
+
+.box {
+  padding: 5px;
+  margin: 5px;
+  border: 1px solid #000;
+  flex: 1;
+}
+
+/* .boxTest {
+  border: 1px solid #000;
+  flex: 1;
+  flex-direction:row;
+} */
+
+#titleBox {
+  align-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  align-items: center;
+  text-align: center;
+  height: -moz-fit-content;
+  height: fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  cursor: pointer;
+  min-height: 125px;
+}
+
+#box2 {
+    min-height: 35px;
+    align-content: center;
+    text-align: center;
+}
+
+#box5 {
+  align-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  align-items: center;
+  text-align: center;
+  min-height: 35px;
+  align-content: center;
+  max-width: 400px;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+#box7 {
+  align-content: center;
+  margin-left: auto;
+  margin-right: auto;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  text-align: center;
+  min-height: 35px;
+  align-content: center;
+  max-width: 490px;
+  text-align: center;
 }
 
-.App-link {
-  color: #61dafb;
+#box8 {
+  align-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  align-items: center;
+  text-align: center;
+  min-height: 450px;
+  align-content: center;
+  max-width: 490px;
+  text-align: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+#box3 {
+    min-height: 450px
+}
+
+#box4 {
+    min-height: 75px;
+}
+
+#vehicleFav1 {
+  align-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  align-items: center;
+  text-align: center;
+  min-height: 700px;
+  align-content: center;
+  max-width: 490px;
+  text-align: center;
+}
+
+#personalFav {
+  align-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  align-items: center;
+  text-align: center;
+  min-height: 50px;
+  align-content: center;
+  max-width: 490px;
+  text-align: center;
+}
+
+#vehicleFav2 {
+  align-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  align-items: center;
+  text-align: center;
+  min-height: 700px;
+  align-content: center;
+  max-width: 490px;
+  text-align: center;
+}
+
+#vehicleFav3 {
+  align-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  align-items: center;
+  text-align: center;
+  min-height: 700px;
+  align-content: center;
+  max-width: 490px;
+  text-align: center;
+}
+
+#vehicleLight1, #vehicleLight2 {
+  align-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  align-items: center;
+  text-align: center;
+  min-height: 400px;
+  align-content: center;
+  max-width: 750px;
+  text-align: center;
+}
+
+#lightsBox {
+  flex-direction: column;
+}
+
+#menu3 {
+    max-width: 125px;
+}
 }

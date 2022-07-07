@@ -1,9 +1,10 @@
 import './App.css';
+import AppController from './AppController';
 
 function App() {
   return (
-    <div className="App">
-      
+    <div className="App">  
+      <AppController /> 
     </div>
   );
 }
