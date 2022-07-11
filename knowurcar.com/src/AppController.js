@@ -5,18 +5,32 @@ function AppController() {
     <div className="App">
         <div id='container' class='box'>
             <div id='titleBox' class='box'>
-                <img id="pageLogo" src="KnowUrCarLogoSVG5.png" alt="logo"/>
+                <img id="pageLogo" src="KUCLogo.png" alt="logo"/>
             </div>
         
             <div id='box2' class='box'>
-                <div id= 'innerMenu1' class='box'>Year</div>
-                <div id= 'innerMenu2' class='box'>Make</div>
-                <div id= 'innerMenu3' class='box'>Model</div>
-                <div id= 'innerMenu4' class='box'>Trim</div>
+                <div class='box'>
+                    <input class='box' type='text' placeholder='Vehicle Year'/>
+                    {/* <a href={carWebsite(sedan.carModel)} target="_blank">
+                        <img src={sedan.carImage} alt='Vehicle Poster'/>
+                    </a> */}
+                </div>
+                <div class='box'>
+                    <input class='box' type='text' placeholder='Vehicle Make'/>
+                </div>
+                <div class='box'>
+                    <input class='box' type='text' placeholder='Vehicle Model'/>
+                </div>
+                <div class='box'>
+                    <input class='box' type='text' placeholder='Vehicle Trim'/>
+                </div>
             </div>
 
             <div id='box5' class='box'>
-                <div id= 'innerMenu1' class='box'>Look up Car</div>
+                <div id='lookUpBtn'>
+                    Look up Vehicle
+                    {/* <input class='box' type='button' placeholder='Look up Vehicle'/> */}
+                </div>
             </div>
 
             <div id='box3' class='box'>
