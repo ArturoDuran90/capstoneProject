@@ -1,7 +1,6 @@
 @media screen and (max-width: 4000px){
   body{
     margin: 10px;
-    
     padding: 10px;
     align-items: center;
     align-content: center;
@@ -74,7 +73,7 @@
 .box {
   padding: 5px;
   margin: 5px;
-  /* border: 1px solid #000; */
+  border: 1px solid #000;
   flex: 1;
 }
 
@@ -103,12 +102,10 @@
   margin-right: auto;
   align-items: center;
   text-align: center;
-  height: -moz-fit-content;
   height: fit-content;
   width: -moz-fit-content;
   width: fit-content;
   cursor: pointer;
-  min-height: 125px;
 }
 
 #box2 {
@@ -228,4 +225,20 @@
 #menu3 {
     max-width: 125px;
 }
+}
+@media all and (max-width: 1000px) {
+  #box2 {
+    flex-wrap: wrap;
+  }
+}
+@media all and (max-width:700px) {
+  #box3, #vehicleFav1, #vehicleFav2, #vehicleFav3 {
+    flex-direction:column;
+    flex-wrap: wrap;
+    max-width: 760px;
+    width: 100%;
+  }
+  #personalFav {
+    display: none;
+  }
 }

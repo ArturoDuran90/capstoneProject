@@ -1,11 +1,16 @@
 import './App.css';
+import LightsTable from './LightsTable';
+
+const refreshPage = ()=>{
+    window.location.reload();
+}
 
 function AppController() {
     return (
     <div className="App">
         <div id='container' class='box'>
             <div id='titleBox' class='box'>
-                <img id="pageLogo" src="KUCLogo.png" alt="logo"/>
+                <img onClick={() => {refreshPage()}} id="pageLogo" src="KUClogo.png" alt="logo"/>
             </div>
         
             <div id='box2' class='box'>
@@ -45,7 +50,7 @@ function AppController() {
                         Car 2
                     </div>
                 </div>
-                <div id= 'vehicleFav3' class='box'>Car 3</div>
+                <div id='vehicleFav3' class='box'>Car 3</div>
             </div>
             
             <div id='box5' class='box'>
@@ -73,14 +78,20 @@ function AppController() {
                 </tr>
             </table> */}
 
-            <div id='box3' class='box'>
+            {/* <div id='box3' class='box'>
                 <div id= 'vehicleLight1' class='box'>
-
+                        Vehicle Light 1
+                    <div id= 'vehicleLight1' class='box'>
+                        Vehicle Light 1
+                    </div>
                 </div>
                 <div id='vehicleLight2' class='box'>
-                    
+                    Vehicle Light 2
                 </div>
-            </div>
+            </div> */}
+
+            <LightsTable /> 
+            
 
         </div>
     </div>
