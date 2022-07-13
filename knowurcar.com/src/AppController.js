@@ -10,12 +10,13 @@ const refreshPage = ()=>{
 
 function AppController() {
     return (
-    // <div className="App">
-        <div id='container' className='box'>
-            <div id='titleBox' className='box'>
+    <div className="App">
+        <div id='container' >
+            <div id='titleBox'>
                 <img onClick={() => {refreshPage()}} id="pageLogo" src="KUClogo.png" alt="logo"/>
             </div>
         
+        <div id='insideContainer'>
             <div id='navBar' className='box'>
                 <div className='box'>
                     <input className='box vehicleInput' type='text' placeholder='Vehicle Year'/>
@@ -31,7 +32,7 @@ function AppController() {
                 </div>
             </div>
 
-            <div id='box5' className='box'>
+            <div id='box5'>
                 <div id='lookUpBtn'>
                     Look up Vehicle
                 </div>
@@ -60,6 +61,7 @@ function AppController() {
                 </div>
             </div>
             
+            <hr/>
             <div id='box5' className='box'>
                 <div id= 'innerMenu1' className='box'>KnowUrLights</div>
             </div>
@@ -68,7 +70,8 @@ function AppController() {
                 Website by Arturo Duran &copy;
             </footer>
         </div>
-    // </div>
+        </div>
+    </div>
     )
 }
 

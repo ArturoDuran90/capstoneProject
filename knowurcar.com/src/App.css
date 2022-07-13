@@ -1,6 +1,8 @@
 @media screen and (max-width: 4000px){
   body{
-    background-color: #A8CCC9;
+    /* background-color: #605F5E; */
+    background-color: #ffffff;
+    /* background-color: #A8CCC9; */
     /* background-color: #BEB7A4; */
     margin-top: 10px;
     margin-bottom: 10px;
@@ -15,6 +17,10 @@
     padding: 0px;
     margin: 0px;
   }
+  hr {
+    margin-right: 10px;
+    margin-left: 10px;
+  }
   footer {
     font-family: sans-serif;
     font-size: 12px;
@@ -23,13 +29,14 @@
     align-content: center;
   }
   input{
-    background-color:transparent;
+    /* background-color: #A41623; */
+    /* background-color:transparent; */
     text-align: center;
-    border-width: 3px;
+    /* border-width: 3px; */
   }
   .App-header {
     /* background-color: #282c34; */
-    background-color: #A41623;
+    /* background-color: #A41623; */
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -82,12 +89,15 @@
     display: flex;
     flex-direction: row;
 }
+#vehicleFavContainer, #navBar, #box5 {
+  background-color: #457EAC;
+}
 .box {
   margin-top: 5px;
   margin-bottom: 5px;
   padding-bottom: 5px;
   padding-top: 5px;
-  border: 1px solid #000;
+  /* border: 1px solid #000; */
   flex: 1;
 }
 #lookUpBtn {
@@ -125,20 +135,27 @@
     min-height: 35px;
     align-content: center;
     text-align: center;
-    background-color: #605F5E;
+    margin-bottom: 0px;
     /* background-color: #A41623; */
     /* border: 1px solid black; */
 }
+/* .App {
+  background-color: #605F5E;
+} */
 #box5 {
   align-content: center;
   margin-left: auto;
   margin-right: auto;
   align-items: center;
   text-align: center;
-  min-height: 35px;
+  
   align-content: center;
-  max-width: 400px;
+  max-width: 100%;
   text-align: center;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
 }
 #box7 {
   align-content: center;
@@ -163,13 +180,14 @@
   text-align: center;
 }
 #vehicleFavContainer {
-    min-height: 450px
+    min-height: 450px;
+    margin-top: 0px;
 }
 #box4 {
     min-height: 75px;
 }
 ::placeholder, input {
-  color: #ffffff;
+  color: #000000;
 }
 #personalFav {
   align-content: center;
@@ -194,6 +212,7 @@
   text-align: center;
   padding-bottom: 0px;
   margin-bottom: 15px;
+  border-right: 1px solid black;
 }
 #vehicleFav2 {
   align-content: center;
@@ -219,6 +238,9 @@
   padding-bottom: 0px;
   margin-bottom: 15px;
 }
+#vehicleFav2Box {
+  border-right: 1px solid black;
+}
 #vehicleLight1, #vehicleLight2 {
   align-content: center;
   margin-left: auto;
@@ -236,9 +258,12 @@
 #menu3 {
     max-width: 125px;
 }
-#vehicleFav1, #vehicleFav2, #vehicleFav3 {
-  border: 1px solid black;
-  
+/* #vehicleFav1, #vehicleFav2, #vehicleFav3 {
+  border-: 1px solid black;
+  background-color: #457EAC;
+} */
+#insideContainer {
+  background-color: #457EAC;
 }
 }
 @media all and (max-width:1500px) {
@@ -267,12 +292,14 @@
     width: 100%;
   }
 }
-@media all and (max-width:760px) {
+@media all and (max-width:780px) {
   #vehicleFavContainer, #vehicleFav1, #vehicleFav2, #vehicleFav3 {
     flex-direction:column;
     flex-wrap: wrap;
     max-width: 760px;
     width: 100%;
+    margin: 0px;
+    margin: 0px;
   }
   #personalFav {
     display: none;
