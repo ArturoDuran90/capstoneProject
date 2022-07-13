@@ -1,16 +1,35 @@
 @media screen and (max-width: 4000px){
   body{
-    margin: 10px;
-    padding: 10px;
+    background-color: #A8CCC9;
+    /* background-color: #BEB7A4; */
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
     align-items: center;
     align-content: center;
-    background-color: white;
     user-select: none;
     font-family: 'Titillium Web', "Kdam Thmor Pro";
   }
-  
+  #container {
+    padding: 0px;
+    margin: 0px;
+  }
+  footer {
+    font-family: sans-serif;
+    font-size: 12px;
+    text-align: center;
+    align-items: center;
+    align-content: center;
+  }
+  input{
+    background-color:transparent;
+    text-align: center;
+    border-width: 3px;
+  }
   .App-header {
-    background-color: #282c34;
+    /* background-color: #282c34; */
+    background-color: #A41623;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -18,26 +37,23 @@
     justify-content: center;
     font-size: calc(10px + 2vmin);
     color: white;
-  }
-  
+  } 
   .flexbox {
     border: black solid 1px;
     display: flex;
     flex: 1;
     flex-wrap: nowrap;
-    padding: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
     justify-content: center;
     align-content: center;
   }
-  
   .App-link {
     color: #61dafb;
   }
-  
   label {
     font-weight: bold;
   }
-  
   .userBox {
     display: inline-block;
     margin-left: 1px;
@@ -48,38 +64,37 @@
     user-select: none;
     cursor: pointer;
   }
-  
   #priceDis {
     font-size: 12px;
     color:gray;
   }
-  
   #link {
     color: gray;
     text-decoration: none;
     font-size: 15px;
   }
-  
   #link:hover {
     color: #246EB9;
   }
 
  /* Flexbox */
-#box3, #box2 {
+#vehicleFavContainer, #navBar {
     display: flex;
     flex-direction: row;
 }
-
 .box {
-  padding: 5px;
-  margin: 5px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  padding-bottom: 5px;
+  padding-top: 5px;
   border: 1px solid #000;
   flex: 1;
 }
-
 #lookUpBtn {
-  padding: 5px;
-  margin: 5px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  padding-bottom: 5px;
+  padding-top: 5px;
   flex: 1;
   border: 1px solid #000;
   width: 150px;
@@ -87,15 +102,12 @@
   margin-left: auto;
   margin-right: auto;
   align-items: center;
-  
 }
-
 /* .boxTest {
   border: 1px solid #000;
   flex: 1;
   flex-direction:row;
 } */
-
 #titleBox {
   align-content: center;
   margin-left: auto;
@@ -106,14 +118,17 @@
   width: -moz-fit-content;
   width: fit-content;
   cursor: pointer;
+  margin-top: 0px;
+  padding-top: 0px;
 }
-
-#box2 {
+#navBar {
     min-height: 35px;
     align-content: center;
     text-align: center;
+    background-color: #605F5E;
+    /* background-color: #A41623; */
+    /* border: 1px solid black; */
 }
-
 #box5 {
   align-content: center;
   margin-left: auto;
@@ -125,7 +140,6 @@
   max-width: 400px;
   text-align: center;
 }
-
 #box7 {
   align-content: center;
   margin-left: auto;
@@ -137,7 +151,6 @@
   max-width: 490px;
   text-align: center;
 }
-
 #box8 {
   align-content: center;
   margin-left: auto;
@@ -149,27 +162,15 @@
   max-width: 490px;
   text-align: center;
 }
-
-#box3 {
+#vehicleFavContainer {
     min-height: 450px
 }
-
 #box4 {
     min-height: 75px;
 }
-
-#vehicleFav1 {
-  align-content: center;
-  margin-left: auto;
-  margin-right: auto;
-  align-items: center;
-  text-align: center;
-  min-height: 700px;
-  align-content: center;
-  max-width: 490px;
-  text-align: center;
+::placeholder, input {
+  color: #ffffff;
 }
-
 #personalFav {
   align-content: center;
   margin-left: auto;
@@ -181,31 +182,43 @@
   max-width: 490px;
   text-align: center;
 }
-
+#vehicleFav1 {
+  align-content: center;
+  margin-left: 10px;
+  margin-right: 5px;
+  align-items: center;
+  text-align: center;
+  min-height: 700px;
+  align-content: center;
+  max-width: 490px;
+  text-align: center;
+  padding-bottom: 0px;
+  margin-bottom: 15px;
+}
 #vehicleFav2 {
   align-content: center;
-  margin-left: auto;
-  margin-right: auto;
+  margin-left: 5px;
+  margin-right: 5px;
   align-items: center;
   text-align: center;
   min-height: 700px;
   align-content: center;
-  max-width: 490px;
+  max-width: auto;
   text-align: center;
 }
-
 #vehicleFav3 {
   align-content: center;
-  margin-left: auto;
-  margin-right: auto;
+  margin-left: 5px;
+  margin-right: 10px;
   align-items: center;
   text-align: center;
   min-height: 700px;
   align-content: center;
   max-width: 490px;
   text-align: center;
+  padding-bottom: 0px;
+  margin-bottom: 15px;
 }
-
 #vehicleLight1, #vehicleLight2 {
   align-content: center;
   margin-left: auto;
@@ -217,22 +230,45 @@
   max-width: 750px;
   text-align: center;
 }
-
 #lightsBox {
   flex-direction: column;
 }
-
 #menu3 {
     max-width: 125px;
 }
+#vehicleFav1, #vehicleFav2, #vehicleFav3 {
+  border: 1px solid black;
+  
 }
-@media all and (max-width: 1000px) {
-  #box2 {
+}
+@media all and (max-width:1500px) {
+  #navBar {
     flex-wrap: wrap;
   }
 }
-@media all and (max-width:700px) {
-  #box3, #vehicleFav1, #vehicleFav2, #vehicleFav3 {
+@media all and (max-width:1250px) {
+  #navBar {
+    flex-wrap: wrap;
+  }
+  #vehicleFavContainer, #vehicleFav3 {
+    flex-wrap: wrap;
+    max-width: 1250px;
+    width: 100%;
+  }
+}
+@media all and (max-width:800px) {
+  #navBar {
+    flex-wrap: wrap;
+  }
+  #vehicleFavContainer, #vehicleFav1, #vehicleFav2, #vehicleFav2Box, #vehicleFav3 {
+    flex-direction:column;
+    flex-wrap: wrap;
+    max-width: 800px;
+    width: 100%;
+  }
+}
+@media all and (max-width:760px) {
+  #vehicleFavContainer, #vehicleFav1, #vehicleFav2, #vehicleFav3 {
     flex-direction:column;
     flex-wrap: wrap;
     max-width: 760px;
@@ -240,5 +276,21 @@
   }
   #personalFav {
     display: none;
+  }
+}
+@media all and (max-width:430px) {
+  #vehicleFavContainer, #vehicleFav1, #vehicleFav2, #vehicleFav3 {
+    flex-direction:column;
+    flex-wrap: wrap;
+    max-width: 760px;
+    width: 100%;
+  }
+  #personalFav {
+    display: none;
+  }
+  .imgCar  {
+    max-width:430px;
+    width: 100%;
+    height: auto;
   }
 }
