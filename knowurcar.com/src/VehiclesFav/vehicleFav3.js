@@ -16,6 +16,7 @@ function vehicleFav3() {
                     <li><label>Engine Type:</label></li><br/>
                     <li><label>Engine Horsepower:</label></li>
                     <li><label>Engine Torque:</label></li>
+                    <li><label>Transmition:</label></li>
                     <li><label>Fuel Economy (City/Highway/Combined):</label></li>
                     <li><label>Fuel Tank Capacity:</label></li>
                     <li><label>Dimensions:</label></li>
@@ -24,21 +25,22 @@ function vehicleFav3() {
             </div>
             <div className='box vehiclesInfoRight'>
                 <ul>
-                    <li>BMW</li>
-                    <li>328i</li>
-                    <li>GT</li>
+                    <li>Honda</li>
+                    <li>Civic Type R</li>
+                    <li>Touring</li>
                     <li>Hatchback</li>
-                    <li>AWD</li>
-                    <li>2016</li>
+                    <li>FWD</li>
+                    <li>2021</li>
                     <li>91 Octane</li>
                     <li>3,000 - 5,000 miles</li>
-                    <li>Turbocharged 2.0-Liter 4 Cylinder</li>
-                    <li>240 hp</li>
-                    <li>258lb-ft @ 1,250 - 4,800 rpm</li><br/>
-                    <li>22 / 33 / 26</li>
-                    <li>15.8 gal</li>
-                    <li>190" L x 72" W x 59" H</li>
-                    <li>vP225 / 45R18</li>
+                    <li>Turbocharged 2.0-Liter VTEC 4 Cylinder</li>
+                    <li>306 hp</li>
+                    <li>295lb-ft @ 2,500 rpm</li>
+                    <li>6-speed Manual</li><br/>
+                    <li>22 / 28 / 25</li>
+                    <li>12.4 gal</li>
+                    <li>180" L x 74" W x 57" H</li>
+                    <li>vP245 / 30R20</li>
                 </ul>
             </div>
         </div>

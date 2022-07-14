@@ -13,9 +13,10 @@ function vehicleFav2() {
                     <li><label>Year:</label></li>
                     <li><label>Gas Type:</label></li>
                     <li><label>Oil Change Interval:</label></li>
-                    <li><label>Engine Type:</label></li><br/>
+                    <li><label>Engine Type:</label></li>
                     <li><label>Engine Horsepower:</label></li>
                     <li><label>Engine Torque:</label></li>
+                    <li><label>Transmition:</label></li>
                     <li><label>Fuel Economy (City/Highway/Combined):</label></li>
                     <li><label>Fuel Tank Capacity:</label></li>
                     <li><label>Dimensions:</label></li>
@@ -24,21 +25,22 @@ function vehicleFav2() {
             </div>
             <div className='box vehiclesInfoRight'>
                 <ul>
-                    <li>BMW</li>
-                    <li>328i</li>
-                    <li>GT</li>
-                    <li>Hatchback</li>
-                    <li>AWD</li>
-                    <li>2016</li>
+                    <li>Kia</li>
+                    <li>K5</li>
+                    <li>GT-Line</li>
+                    <li>Fastback</li>
+                    <li>FWD</li>
+                    <li>2021</li>
                     <li>91 Octane</li>
                     <li>3,000 - 5,000 miles</li>
-                    <li>Turbocharged 2.0-Liter 4 Cylinder</li>
-                    <li>240 hp</li>
-                    <li>258lb-ft @ 1,250 - 4,800 rpm</li><br/>
-                    <li>22 / 33 / 26</li>
+                    <li>Turbocharged 1.6-Liter 4 Cylinder</li>
+                    <li>180 hp</li>
+                    <li>195lb-ft @ 1,500 - 4,500 rpm</li>
+                    <li>8-Speed Automatic</li><br/>
+                    <li>27 / 37 / 31</li>
                     <li>15.8 gal</li>
-                    <li>190" L x 72" W x 59" H</li>
-                    <li>vP225 / 45R18</li>
+                    <li>193" L x 73" W x 56" H</li>
+                    <li>vP235 / 45R18</li>
                 </ul>
             </div>
         </div>

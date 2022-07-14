@@ -16,6 +16,7 @@ function vehicleFav1() {
                     <li><label>Engine Type:</label></li><br/>
                     <li><label>Engine Horsepower:</label></li>
                     <li><label>Engine Torque:</label></li>
+                    <li><label>Transmition:</label></li>
                     <li><label>Fuel Economy (City/Highway/Combined):</label></li>
                     <li><label>Fuel Tank Capacity:</label></li>
                     <li><label>Dimensions:</label></li>
@@ -34,7 +35,8 @@ function vehicleFav1() {
                     <li>3,000 - 5,000 miles</li>
                     <li>Turbocharged 2.0-Liter 4 Cylinder</li>
                     <li>240 hp</li>
-                    <li>258lb-ft @ 1,250 - 4,800 rpm</li><br/>
+                    <li>258lb-ft @ 1,250 - 4,800 rpm</li>
+                    <li>8-Speed Automatic</li><br/>
                     <li>22 / 33 / 26</li>
                     <li>15.8 gal</li>
                     <li>190" L x 72" W x 59" H</li>
