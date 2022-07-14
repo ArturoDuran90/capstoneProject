@@ -45,7 +45,9 @@ function AppController() {
                 <div id='vehicleFav1' className='box'>
                     <div className='box'>
                         <img className="imgCar" src={car1} alt='Vehicle Poster'/>
+                        <br/>
                     </div>
+                    <br/>
                     <h3 className='box'>BMW 328i xDrive GT</h3>
                     <VehicleFav1/>
                 </div>
@@ -76,6 +78,7 @@ function AppController() {
             <footer>
                 Website by Arturo Duran &copy;
             </footer>
+            <br/>
         </div>
         </div>
     </div>

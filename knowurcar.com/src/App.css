@@ -202,7 +202,7 @@
   text-align: center;
   padding-bottom: 0px;
   margin-bottom: 15px;
-  border-right: 1px solid black;
+  /* background-color: #605F5E; */
 }
 #vehicleFav2 {
   align-content: center;
@@ -214,6 +214,7 @@
   align-content: center;
   max-width: auto;
   text-align: center;
+  /* background-color: #605F5E; */
 }
 #vehicleFav3 {
   align-content: center;
@@ -227,9 +228,11 @@
   text-align: center;
   padding-bottom: 0px;
   margin-bottom: 15px;
+  /* background-color: #605F5E; */
 }
 #vehicleFav2Box {
   border-right: 1px solid black;
+  border-left: 1px solid black;
 }
 #vehicleLight1, #vehicleLight2 {
   align-content: center;
