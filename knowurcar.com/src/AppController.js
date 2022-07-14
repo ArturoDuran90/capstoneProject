@@ -1,5 +1,8 @@
 import './App.css';
 import LightsTable from './LightsTable';
+import VehicleFav1 from './VehiclesFav/vehicleFav1';
+import VehicleFav2 from './VehiclesFav/vehicleFav2';
+import VehicleFav3 from './VehiclesFav/vehicleFav3';
 import car1 from './images/car1.jpg';
 import car2 from './images/car2.jpg';
 import car3 from './images/car3.jpg';
@@ -43,28 +46,25 @@ function AppController() {
                     <div className='box'>
                         <img className="imgCar" src={car1} alt='Vehicle Poster'/>
                     </div>
-                    <h2>BMW 328i xDrive GT</h2>
-                    <div className="vehiclesInfo">
-                        carType: "Mid-Size Sedan", "\n"
-                        "carDrivetrain": "AWD",
-                        "carPrice": "$43,000"
-                    </div>
+                    <h3 className='box'>BMW 328i xDrive GT</h3>
+                    <VehicleFav1/>
                 </div>
                 <div id='vehicleFav2Box'className='box'>
                     <div id="personalFav" className='box'>Our Personal Favorites</div>
-                    
                     <div id='vehicleFav2' className='box'>
                         <div className='box'>
                             <img className="imgCar" src={car2} alt='Vehicle Poster'/>
                         </div>
-                        <h2>Kia K5 GT-Line</h2>
+                        <h3 className='box'>Kia K5 GT-Line</h3>
+                        <VehicleFav2/>
                     </div>
                 </div>
                 <div id='vehicleFav3' className='box'>
                     <div className='box'>
                         <img className="imgCar" src={car3} alt='Vehicle Poster'/>
                     </div>
-                    <h2>Honda Civic Type R</h2>
+                    <h3 className='box'>Honda Civic Type R</h3>
+                    <VehicleFav3/>
                 </div>
             </div>
             

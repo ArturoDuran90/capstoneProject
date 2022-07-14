@@ -34,32 +34,47 @@
     text-align: center;
     /* border-width: 3px; */
   }
-  .App-header {
-    /* background-color: #282c34; */
-    /* background-color: #A41623; */
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: white;
-  } 
-  .flexbox {
-    border: black solid 1px;
-    display: flex;
-    flex: 1;
-    flex-wrap: nowrap;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    justify-content: center;
-    align-content: center;
+  ul {
+    list-style: none;
+    font-size: 15px;
+    font-family: sans-serif;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 0px;
+  }
+  li {
+    /* text-align: justify; */
+    padding: 7px;
+  }
+  label {
+    /* text-align: justify; */
+    font-size: 15px;
   }
   .App-link {
     color: #61dafb;
   }
   label {
     font-weight: bold;
+    text-align:start;
+  }
+  .vehiclesInfo {
+    width: 100% / 2;
+    /* border: 1px solid black; */
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+  }
+  .vehiclesInfoLeft {
+    /* border: 1px solid black; */
+    text-align: left;
+    padding-left: 10px;
+  }
+  .vehiclesInfoRight {
+    /* border: 1px solid black; */
+    text-align: right;
+    padding-right: 10px;
   }
   .userBox {
     display: inline-block;
@@ -97,7 +112,7 @@
   margin-bottom: 5px;
   padding-bottom: 5px;
   padding-top: 5px;
-  border: 1px solid #000;
+  /* border: 1px solid #000; */
   flex: 1;
 }
 #lookUpBtn {
@@ -157,34 +172,9 @@
   padding-top: 0px;
   padding-bottom: 0px;
 }
-#box7 {
-  align-content: center;
-  margin-left: auto;
-  margin-right: auto;
-  align-items: center;
-  text-align: center;
-  min-height: 35px;
-  align-content: center;
-  max-width: 490px;
-  text-align: center;
-}
-#box8 {
-  align-content: center;
-  margin-left: auto;
-  margin-right: auto;
-  align-items: center;
-  text-align: center;
-  min-height: 450px;
-  align-content: center;
-  max-width: 490px;
-  text-align: center;
-}
 #vehicleFavContainer {
     min-height: 450px;
     margin-top: 0px;
-}
-#box4 {
-    min-height: 75px;
 }
 ::placeholder, input {
   color: #000000;
@@ -254,9 +244,6 @@
 }
 #lightsBox {
   flex-direction: column;
-}
-#menu3 {
-    max-width: 125px;
 }
 /* #vehicleFav1, #vehicleFav2, #vehicleFav3 {
   border-: 1px solid black;
