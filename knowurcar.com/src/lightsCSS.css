@@ -1,6 +1,7 @@
 @media all and (max-width: 4000px) {
   div {
     box-sizing: border-box;
+    /* border: 1px solid black; */
   }
   .imgLight {
     padding: 5px;
@@ -37,6 +38,7 @@
     width: calc(90% / 2);
     text-align: center;
     padding: 0.5em 0.5em;
+    font-size: 0.75em;
   }
   .horzLn {
     border-bottom: solid 1px #d9d9d9;
@@ -86,3 +88,23 @@
     align-self: center;
   }
 }
+/* @media all and (max-width:430px) {
+  .imgLight {
+    padding: 1px;
+    margin: 1px;
+    width: 2em;
+    height: 2em;
+  }
+  .second {
+    text-align: center;
+    padding-left: 0.5em;
+    font-size: 0.6em;
+  }
+  .flex-row.first, .first2 {
+    width:15%;
+  }
+  .flex-row {
+    width: 85%;
+    flex-wrap: wrap;
+  }
+} */

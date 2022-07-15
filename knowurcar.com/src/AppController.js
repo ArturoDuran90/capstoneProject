@@ -8,7 +8,7 @@ import car2 from './images/car2.jpg';
 import car3 from './images/car3.jpg';
 
 const refreshPage = ()=>{
-    window.location.reload();
+    window.parent.location = window.parent.location.href;
 }
 
 function AppController() {
@@ -17,6 +17,7 @@ function AppController() {
         <div id='container' >
             <div id='titleBox'>
                 <img onClick={() => {refreshPage()}} id="pageLogo" src="KUClogo.png" alt="logo"/>
+                {/* <h1 id="title">.com</h1> */}
             </div>
         
         <div id='insideContainer'>
@@ -35,7 +36,7 @@ function AppController() {
                 </div>
             </div>
 
-            <div id='box5'>
+            <div id='LookUpDiv'>
                 <div id='lookUpBtn'>
                     Look up Vehicle
                 </div>
@@ -71,7 +72,8 @@ function AppController() {
             </div>
             
             <hr/>
-            <div id='box5' className='box'>
+            <br/>
+            <div id='lightsDiv' className='box'>
                 <div id= 'innerMenu1' className='box'>KnowUrLights</div>
             </div>
             <LightsTable /> 
