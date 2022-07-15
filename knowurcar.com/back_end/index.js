@@ -14,16 +14,10 @@ app.get("/", function(req, res) {
     res.send(`App Running, you can check "localhost:4001/api" to get the API.`)
 });
 
-app.get("/api", function(req, res){ 
-    const results = "Hello"
+app.get("/api/sedan", function(req, res){ 
+    const results = JSON.parse(fs.readFileSync('sedanJSON.json'));
 
     res.json(results);
 });
-
-// app.get("/api/suv", function(req, res){ 
-//     const results = JSON.parse(fs.readFileSync('suvJSON.json'));
-
-//     res.json(results);
-// });
 
 app.listen(PORT, () => console.log(`Express listening on port: ${PORT}`));

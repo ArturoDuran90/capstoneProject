@@ -1,0 +1,14 @@
+{
+    "results": [
+        {
+                "carId": "01",
+                "carName": "Kia Rio",
+                "carMake": "Kia",
+                "carModel": "Rio",
+                "carYear": "2022",
+                "carType": "Compact Sedan",
+                "carImage": "http://localhost:4001/sedan/BMW328iGTUsersManual.pdf",
+                "carPrice": "$16,450"
+        }
+    ]
+}

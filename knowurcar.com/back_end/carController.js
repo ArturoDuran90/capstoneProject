@@ -13,29 +13,16 @@ class Vehicle {
 }
 
 exports.generator = {
-    // sedan: JSON.parse(fs.readFileSync('sedanJSON.json')),
+    sedan: JSON.parse(fs.readFileSync('sedanJSON.json')),
 
-    // getVehicles: function() {
-    //     var carPicture = this.vehicle.carPicture;
-    //     var carName = this.vehicle.carName;
-    //     var carMake = this.vehicle.carMake;
-    //     var carModel = this.vehicle.carModel;
-    //     var carYear = this.vehicle.carYear;
-    //     var carBody = this.vehicle.carBody;
+    getVehicles: function() {
+        var carPicture = this.vehicle.carPicture;
+        var carName = this.vehicle.carName;
+        var carMake = this.vehicle.carMake;
+        var carModel = this.vehicle.carModel;
+        var carYear = this.vehicle.carYear;
+        var carBody = this.vehicle.carBody;
 
-    //     return new Vehicle(carPicture, carName, carMake, carModel, carYear, carBody);
-    // },
-
-    // suv: JSON.parse(fs.readFileSync('suvJSON.json')),
-
-    // getVehicles: function() {
-    //     var carPicture = this.vehicle.carPicture;
-    //     var carName = this.vehicle.carName;
-    //     var carMake = this.vehicle.carMake;
-    //     var carModel = this.vehicle.carModel;
-    //     var carYear = this.vehicle.carYear;
-    //     var carBody = this.vehicle.carBody;
-
-    //     return new Vehicle(carPicture, carName, carMake, carModel, carYear, carBody);
-    // }
+        return new Vehicle(carPicture, carName, carMake, carModel, carYear, carBody);
+    }
 }
