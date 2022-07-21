@@ -1,14 +1,23 @@
 {
     "results": [
         {
-                "carId": "01",
-                "carName": "Kia Rio",
-                "carMake": "Kia",
-                "carModel": "Rio",
-                "carYear": "2022",
-                "carType": "Compact Sedan",
-                "carImage": "http://localhost:4001/sedan/BMW328iGTUsersManual.pdf",
-                "carPrice": "$16,450"
-        }
+            "carId": "01",
+            "carMake": "BMW",
+            "carModel": "328i",
+            "carTrim": "GT",
+            "carBody": "Hatchback",
+            "carDrivetrain": "AWD",
+            "carYear": "2016",
+            "carGasType": "91 Octane",
+            "carOilChange": "3,000 - 5,000 miles",
+            "carEngineType": "Turbocharged 2.0-Liter 4 Cylinder",
+            "carEngineHorsPow": "240 hp",
+            "carEngineTorq": "258lb-ft @ 1,250 - 4,800 rpm",
+            "carTransmit": "8-Speed Automatic",
+            "carFuelEcon": "22 / 33 / 26",
+            "carFuelTankCap": "15.8 gal",
+            "carDimensions": "190 L x 72 W x 59 H", //need to add quote
+            "carTireSize": "vP225 / 45R18"
+        },
     ]
 }
