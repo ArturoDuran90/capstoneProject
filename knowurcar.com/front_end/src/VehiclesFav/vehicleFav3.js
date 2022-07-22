@@ -1,6 +1,23 @@
 import '..//App.css';
+import React from "react";
+import { useEffect, useState } from 'react';
 
-function vehicleFav3() {
+function VehicleFav3() {
+    const [favCars, setFavCars] = useState([]);
+
+    useEffect(() => {
+        getData();
+    }, []);
+
+    const getData = () => {
+        var url = `http://localhost:4001/api/favCars`
+        fetch(url)
+        .then(r => r.json(0))
+        .then(data => {
+            setFavCars(data);
+        }).catch(e => console.log(e));
+    }
+
     return(
         <div className='box vehiclesInfo'>
             <div className='box vehiclesInfoLeft'>
@@ -24,27 +41,31 @@ function vehicleFav3() {
                 </ul>
             </div>
             <div className='box vehiclesInfoRight'>
-                <ul>
-                    <li>Honda</li>
-                    <li>Civic Type R</li>
-                    <li>Touring</li>
-                    <li>Hatchback</li>
-                    <li>FWD</li>
-                    <li>2021</li>
-                    <li>91 Octane</li>
-                    <li>3,000 - 5,000 miles</li>
-                    <li>Turbocharged 2.0-Liter VTEC 4 Cylinder</li>
-                    <li>306 hp</li>
-                    <li>295lb-ft @ 2,500 rpm</li>
-                    <li>6-speed Manual</li><br/>
-                    <li>22 / 28 / 25</li>
-                    <li>12.4 gal</li>
-                    <li>180" L x 74" W x 57" H</li>
-                    <li>vP245 / 30R20</li>
-                </ul>
+                {
+                favCars.car3?.map((car, index) => (
+                    <ul>
+                        <li>{car.carMake}</li>
+                        <li>{car.carModel}</li>
+                        <li>{car.carTrim}</li>
+                        <li>{car.carBody}</li>
+                        <li>{car.carDrivetrain}</li>
+                        <li>{car.carYear}</li>
+                        <li>{car.carGasType}</li>
+                        <li>{car.carOilChange}</li>
+                        <li>{car.carEngineType}</li>
+                        <li>{car.carEngineHorsPow}</li>
+                        <li>{car.carEngineTorq}</li>
+                        <li>{car.carTransmit}</li>
+                        <li>{car.carFuelEcon}</li>
+                        <li>{car.carFuelTankCap}</li>
+                        <li>{car.carDimensions}</li>
+                        <li>{car.carTireSize}</li>
+                    </ul>
+                    ))
+                }
             </div>
         </div>
     )
 }
 
-export default vehicleFav3;
+export default VehicleFav3;

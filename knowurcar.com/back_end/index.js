@@ -14,8 +14,8 @@ app.get("/", function (req, res) {
   res.send(`App Running, you can check "localhost:4001/api" to get the API.`);
 });
 
-app.get("/api/sedan", function (req, res) {
-  const results = JSON.parse(fs.readFileSync("sedanJSON.json"));
+app.get("/api/favCars", function (req, res) {
+  const results = JSON.parse(fs.readFileSync("favCarsJSON.json"));
 
   res.json(results);
 });

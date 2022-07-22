@@ -1,0 +1,71 @@
+{
+    "car1": [
+        {
+            "carId": "01",
+            "carMake": "BMW",
+            "carModel": "328i",
+            "carTrim": "GT",
+            "carBody": "Hatchback",
+            "carDrivetrain": "AWD",
+            "carYear": "2016",
+            "carGasType": "91 Octane",
+            "carOilChange": "3,000 - 5,000 miles",
+            "carEngineType": "Turbocharged 2.0-Liter 4 Cylinder",
+            "carEngineHorsPow": "240 hp",
+            "carEngineTorq": "258lb-ft @ 1,250 - 4,800 rpm",
+            "carTransmit": "8-Speed Automatic",
+            "carFuelEcon": "22 / 33 / 26",
+            "carFuelTankCap": "15.8 gal",
+            "carDimensions": "190\" L x 72\" W x 59\" H",
+            "carTireSize": "vP225 / 45R18",
+            "carImage": "http://localhost:4001/images/car1.jpg",
+            "carPDF": "http://localhost:4001/docs/BMW328iGTUsersManual.pdf"
+        }
+    ],
+    "car2": [
+        {
+            "carId": "02",
+            "carMake": "Kia",
+            "carModel": "K5",
+            "carTrim": "GT-Line",
+            "carBody": "Fastback",
+            "carDrivetrain": "FWD",
+            "carYear": "2021",
+            "carGasType": "91 Octane",
+            "carOilChange": "3,000 - 5,000 miles",
+            "carEngineType": "Turbocharged 1.6-Liter 4 Cylinder",
+            "carEngineHorsPow": "180 hp",
+            "carEngineTorq": "195lb-ft @ 1,500 - 4,500 rpm",
+            "carTransmit": "8-Speed Automatic",
+            "carFuelEcon": "27 / 37 / 31",
+            "carFuelTankCap": "15.8 gal",
+            "carDimensions": "193\" L x 73\" W x 56\" H",
+            "carTireSize": "vP235 / 45R18",
+            "carImage": "http://localhost:4001/images/car2.jpg",
+            "carPDF": "http://localhost:4001/docs/KIAK5UsersManual.pdf"
+        }
+    ],
+    "car3": [
+        {
+            "carId": "03",
+            "carMake": "Honda",
+            "carModel": "Civic Type R",
+            "carTrim": "Touring",
+            "carBody": "Hatchback",
+            "carDrivetrain": "FWD",
+            "carYear": "2021",
+            "carGasType": "91 Octane",
+            "carOilChange": "3,000 - 5,000 miles",
+            "carEngineType": "Turbocharged 2.0-Liter VTEC 4 Cylinder",
+            "carEngineHorsPow": "306 hp",
+            "carEngineTorq": "295lb-ft @ 2,500 rpm",
+            "carTransmit": "6-speed Manual",
+            "carFuelEcon": "22 / 28 / 25",
+            "carFuelTankCap": "12.4 gal",
+            "carDimensions": "180\" L x 74\" W x 57\" H",
+            "carTireSize": "vP245 / 30R20",
+            "carImage": "http://localhost:4001/images/car3.jpg",
+            "carPDF": "http://localhost:4001/docs/HondaCivicTypeRUsersManual.pdf"
+        }
+    ]
+}

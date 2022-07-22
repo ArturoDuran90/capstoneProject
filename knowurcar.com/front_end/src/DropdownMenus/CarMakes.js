@@ -1,9 +1,23 @@
 import '..//App.css';
+import index from './index.js';
 
 function CarMakes() {
+
+    // function update() {
+    //     var select = document.getElementById('carMakes').value;
+    //     // var option = select.options[select.selectedIndex];
+
+    //     // document.getElementById('value').value = option.value;
+        
+    // }
+
+
+    
+
     return(
+        <>
         <select className='box vehicleInput' name="carMakes" id="carMakes">
-            <option value="" disabled selected>Make</option>
+            <option disabled selected>Make</option>
             <option value="Abarth">Abarth</option>
             <option value="Acura">Acura</option>
             <option value="Alfa Romeo">Alfa Romeo</option>
@@ -63,7 +77,13 @@ function CarMakes() {
             <option value="Volvo">Volvo</option>
             <option value="Wiesmann">Wiesmann</option>
         </select>
-    )
+        <span id='lookUpBtn' onclick={myFunction()}>
+            Look up Model & Trim
+        </span>
+        <p type="text" id="value"></p>
+        <index /> 
+        </>
+    )    
 }
 
 export default CarMakes;

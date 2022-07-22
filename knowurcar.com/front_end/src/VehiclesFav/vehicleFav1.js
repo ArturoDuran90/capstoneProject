@@ -1,6 +1,23 @@
 import '..//App.css';
+import React from "react";
+import { useEffect, useState } from 'react';
 
-function vehicleFav1() {
+function VehicleFav1() {
+    const [favCars, setFavCars] = useState([]);
+
+    useEffect(() => {
+        getData();
+    }, []);
+
+    const getData = () => {
+        var url = `http://localhost:4001/api/favCars`
+        fetch(url)
+        .then(r => r.json(0))
+        .then(data => {
+            setFavCars(data);
+        }).catch(e => console.log(e));
+    }
+
     return(
         <div className='box vehiclesInfo'>
             <div className='box vehiclesInfoLeft'>
@@ -24,27 +41,31 @@ function vehicleFav1() {
                 </ul>
             </div>
             <div className='box vehiclesInfoRight'>
-                <ul>
-                    <li>BMW</li>
-                    <li>328i</li>
-                    <li>GT</li>
-                    <li>Hatchback</li>
-                    <li>AWD</li>
-                    <li>2016</li>
-                    <li>91 Octane</li>
-                    <li>3,000 - 5,000 miles</li>
-                    <li>Turbocharged 2.0-Liter 4 Cylinder</li>
-                    <li>240 hp</li>
-                    <li>258lb-ft @ 1,250 - 4,800 rpm</li>
-                    <li>8-Speed Automatic</li><br/>
-                    <li>22 / 33 / 26</li>
-                    <li>15.8 gal</li>
-                    <li>190" L x 72" W x 59" H</li>
-                    <li>vP225 / 45R18</li>
-                </ul>
+                {
+                favCars.car1?.map((car, index) => (
+                    <ul>
+                        <li>{car.carMake}</li>
+                        <li>{car.carModel}</li>
+                        <li>{car.carTrim}</li>
+                        <li>{car.carBody}</li>
+                        <li>{car.carDrivetrain}</li>
+                        <li>{car.carYear}</li>
+                        <li>{car.carGasType}</li>
+                        <li>{car.carOilChange}</li>
+                        <li>{car.carEngineType}</li>
+                        <li>{car.carEngineHorsPow}</li>
+                        <li>{car.carEngineTorq}</li>
+                        <li>{car.carTransmit}</li>
+                        <li>{car.carFuelEcon}</li>
+                        <li>{car.carFuelTankCap}</li>
+                        <li>{car.carDimensions}</li>
+                        <li>{car.carTireSize}</li>
+                    </ul>
+                    ))
+                }
             </div>
         </div>
     )
 }
 
-export default vehicleFav1;
+export default VehicleFav1;
