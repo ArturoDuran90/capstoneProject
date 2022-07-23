@@ -1,24 +1,11 @@
 import '..//AppController.css';
-// import index from './index.js';
 
-function CarMakes() {
-
-    // function update() {
-    //     var select = document.getElementById('carMakes').value;
-    //     var option = select.options[select.selectedIndex];
-
-    //     document.getElementById('value').value = option.value;
-        
-    // }
-
-    // function myFunction() {
-    //     var x = document.getElementById("carMakes").value;
-    //     document.getElementById("value").innerHTML = x;
-    // }
+function CarFilter() {
 
     return(
         <>
-        <select className='box vehicleInput' name="carMakes" id='carMakes'>
+        {/* carMakes */}
+        <select className='box vehicleInput' name="carMakes" id="carMakes">
             <option disabled selected>Make</option>
             <option value="Abarth">Abarth</option>
             <option value="Acura">Acura</option>
@@ -78,14 +65,41 @@ function CarMakes() {
             <option value="Volkswagen">Volkswagen</option>
             <option value="Volvo">Volvo</option>
             <option value="Wiesmann">Wiesmann</option>
+        </select> 
+
+        {/* CarYears */}
+        <select className='box vehicleInput' name="carMakes" id="carMakes">
+            <option value="" disabled selected>Year</option>
+            <option value="2010">2010</option>
+            <option value="2011">2011</option>
+            <option value="2012">2012</option>
+            <option value="2013">2013</option>
+            <option value="2014">2014</option>
+            <option value="2015">2015</option>
+            <option value="2016">2016</option>
+            <option value="2017">2017</option>
+            <option value="2018">2018</option>
+            <option value="2019">2019</option>
+            <option value="2020">2020</option>
+            <option value="2021">2021</option>
+            <option value="2022">2022</option>
         </select>
-        {/* <span id='lookUpBtn'>
-            Look up Model & Trim
-        </span> */}
-        {/* <p type="text" id="value"></p>
-        <index />  */}
+
+        {/* Car Models */}
+        <select className='box vehicleInput' name="carModels" id="carModels">
+            <option value="" disabled selected>Model</option>
+            <option value="Model A">Model A</option>
+            <option value="Model B">Model B</option>
+        </select>
+        
+        {/* CarTrims */}
+        <select className='box vehicleInput' name="carTrims" id="carTrims">
+            <option value="" disabled selected>Trim</option>
+            <option value="Trim 1">Trim 1</option>
+            <option value="Trim 2">Trim 2</option>
+        </select>
         </>
     )    
 }
 
-export default CarMakes;
+export default CarFilter;

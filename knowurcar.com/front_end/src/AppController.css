@@ -153,10 +153,15 @@
     height: fit-content;
     width: -moz-fit-content;
     width: 100%;
-
     border-bottom: 1px solid black;
     color: black;
   }
+  .navItem {
+    display: inline-block;
+  }
+  /* .navItem > img {
+    float: left;
+  } */
   #navLogo {
     max-width: fit-content;
     cursor: pointer;
@@ -164,6 +169,7 @@
     margin-top: 10px;
     margin-bottom: 0px;
     padding-bottom: 0px;
+    clear: left;
   }
   .kulightNav {
     margin-left: auto;
@@ -225,9 +231,6 @@
       left: 100%;
       right: 0;
     }
-  }
-  .navItem {
-    display: inline-block;
   }
   #navBar2 {
     min-height: 35px;
