@@ -162,14 +162,15 @@
   /* .navItem > img {
     float: left;
   } */
-  #navLogo {
+  .navLogo {
     max-width: fit-content;
     cursor: pointer;
     margin-left: 10px;
     margin-top: 10px;
     margin-bottom: 0px;
     padding-bottom: 0px;
-    clear: left;
+    /* text-align: left; */
+    float: left;
   }
   .kulightNav {
     margin-left: auto;

@@ -37,7 +37,7 @@ function AppController() {
         <div id='container' >
             <div id='navBar1' className='box'>
                 <span className="navItem">
-                    <img onClick={() => {refreshPage()}} id="navLogo" src="http://localhost:4001/KUCLogo.png" alt="logo"/>
+                    <img className="navLogo" onClick={() => {refreshPage()}} src="http://localhost:4001/KUCLogo.png" alt="logo"/>
                 </span>
                 <span className="navItem kulightNav">
                     <a href="#lightLink">Info about Dashboard Lights. Click Here!</a>
