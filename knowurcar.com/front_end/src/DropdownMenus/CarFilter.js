@@ -11,7 +11,7 @@ function CarFilter() {
         <>
         {/* CarYears */}
         <select className='box vehicleInput' name="carMakes" id="carMakes">
-            <option value="" disabled selected>Year</option>
+            {/* <option value="" disabled selected>Year</option> */}
             <option value="2010">2010</option>
             <option value="2011">2011</option>
             <option value="2012">2012</option>
@@ -29,7 +29,7 @@ function CarFilter() {
 
         {/* carMakes */}
         <select className='box vehicleInput' name="carMakes" id="carMakes">
-            <option disabled selected>Make</option>
+            {/* <option disabled selected>Make</option> */}
             <option value="Abarth">Abarth</option>
             <option value="Acura">Acura</option>
             <option value="Alfa Romeo">Alfa Romeo</option>
@@ -94,14 +94,14 @@ function CarFilter() {
 
         {/* Car Models */}
         <select className='box vehicleInput' name="carModels" id="carModels">
-            <option value="" disabled selected>Model</option>
+            {/* <option value="" disabled selected>Model</option> */}
             <option value="Model A">Model A</option>
             <option value="Model B">Model B</option>
         </select>
         
         {/* CarTrims */}
         <select className='box vehicleInput' name="carTrims" id="carTrims">
-            <option value="" disabled selected>Trim</option>
+            {/* <option value="" disabled selected>Trim</option> */}
             <option value="Trim 1">Trim 1</option>
             <option value="Trim 2">Trim 2</option>
         </select>

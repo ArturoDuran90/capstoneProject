@@ -1,47 +1,31 @@
-import React from "react";
+import '../AppController.css';
+import React from 'react';
+import LightsTable from '../LightsTable/LightsTable';
+import VehicleFav1 from '../VehiclesFav/VehicleFav1';
+import VehicleFav2 from '../VehiclesFav/VehicleFav2';
+import VehicleFav3 from '../VehiclesFav/VehicleFav3';
+import { useEffect, useState } from 'react';
+// import Navbar from '../components/Navbar';
+// import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 const Home = () => {
+  const [favCars, setFavCars] = useState([]);
+
+    useEffect(() => {
+        getData();
+    }, []);
+
+    const getData = () => {
+        var url = `http://localhost:4001/api/favCars`
+        fetch(url)
+        .then(r => r.json(0))
+        .then(data => {
+            setFavCars(data);
+        }).catch(e => console.log(e));
+    }
+
 return (
 	<div id='insideContainer'>
-                <div className='box navBar2Text'>
-                    <p className="navBar2Text">Select your vehicle below for more information.</p>
-                </div>
-                <div id='navBar2' className='box'>
-                    <div className='box'>
-                        <CarFilter />
-                        {/* <input className='box vehicleInput' type='text' placeholder='Vehicle Year'/> */}
-                        {/* <CarMakes /> */}
-                        {/* <input className='box vehicleInput' type='text' placeholder='Vehicle Make'/> */}
-                        {/* <CarYears /> */}
-                        {/* <div id='LookUpDiv'> */}
-                        {/* <span id='lookUpBtn' onClick={() => {}}>
-                            Look up Model & Trim
-                        </span> */}
-                        {/* </div> */}
-                        {/* <input className='box vehicleInput' type='text' placeholder='Vehicle Model'/> */}
-                        {/* <br/> */}
-                        {/* <CarModels/> */}
-                        {/* <input className='box vehicleInput' type='text' placeholder='Vehicle Trim'/> */}
-                        {/* <CarTrims/> */}
-                    </div>
-                </div>
-                <div id='LookUpDiv'>
-                    {/* <div id='lookUpBtn' onClick={() => {}}>
-                        Look up Vehicle
-                    </div> */}
-                    <Router>
-											<Navbar />
-											<Routes>
-												<Route path='/' element={<Home/>} />
-												<Route path='/about' element={<About/>} />
-												<Route path='/contact' element={<Contact/>} />
-												<Route path='/blogs' element={<Blogs/>} />
-												<Route path='/sign-up' element={<SignUp/>} />
-											</Routes>
-										</Router>
-                </div>
-                <hr/>
-                <br/>
                 <div id='vehicleFavContainer' className='box'>
                     <div id='vehicleFav1' className='box'>
                     {

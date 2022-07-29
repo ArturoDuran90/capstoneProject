@@ -1,55 +1,24 @@
-// import React from 'react';
-
-// const Home = () => {
-// return (
-// 	<div>
-// 	<h1>Welcome to GeeksforGeeks</h1>
-// 	</div>
-// );
-// };
-
-// export default Home;
-
 import '../AppController.css';
 import React from 'react';
-import LightsTable from '../LightsTable/LightsTable';
-import VehicleFav1 from '../VehiclesFav/VehicleFav1';
-import VehicleFav2 from '../VehiclesFav/VehicleFav2';
-import VehicleFav3 from '../VehiclesFav/VehicleFav3';
 import CarFilter from '../DropdownMenus/CarFilter';
 // import CarMakes from './DropdownMenus/CarMakes';
 // import CarYears from './DropdownMenus/CarYears';
 // import CarModels from './DropdownMenus/CarModels';
 // import CarTrims from './DropdownMenus/CarTrims';
-import { useEffect, useState } from 'react';
+// import { useEffect, useState } from 'react';
 import Navbar from '../components/Navbar';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Home from '../pages/home';
+// import Home from '../pages/home';
 import About from '../pages/about';
 import Blogs from '../pages/blogs';
 import SignUp from '../pages/signup';
 import Contact from '../pages/contact';
 
 const Home = () => {
-    const [favCars, setFavCars] = useState([]);
-
-    useEffect(() => {
-        getData();
-    }, []);
-
-    const getData = () => {
-        var url = `http://localhost:4001/api/favCars`
-        fetch(url)
-        .then(r => r.json(0))
-        .then(data => {
-            setFavCars(data);
-        }).catch(e => console.log(e));
-    }
-
-    const refreshPage = ()=>{
-        // window.parent.location = window.parent.location.href;
-        window.location.href='/';
-    }
+	const refreshPage = ()=>{
+		// window.parent.location = window.parent.location.href;
+		window.location.href='/';
+	}
 
     return (
     <div className="App">
@@ -62,6 +31,45 @@ const Home = () => {
                         <a href="#lightLink">Info about Dashboard Lights. Click Here!</a>
                     </span>
                 </div>
+								<div className='box navBar2Text'>
+                    <p className="navBar2Text">Select your vehicle below for more information.</p>
+                </div>
+                <div id='navBar2' className='box'>
+                    <div className='box'>
+                        <CarFilter />
+                        {/* <input className='box vehicleInput' type='text' placeholder='Vehicle Year'/> */}
+                        {/* <CarMakes /> */}
+                        {/* <input className='box vehicleInput' type='text' placeholder='Vehicle Make'/> */}
+                        {/* <CarYears /> */}
+                        {/* <div id='LookUpDiv'> */}
+                        {/* <span id='lookUpBtn' onClick={() => {}}>
+                            Look up Model & Trim
+                        </span> */}
+                        {/* </div> */}
+                        {/* <input className='box vehicleInput' type='text' placeholder='Vehicle Model'/> */}
+                        {/* <br/> */}
+                        {/* <CarModels/> */}
+                        {/* <input className='box vehicleInput' type='text' placeholder='Vehicle Trim'/> */}
+                        {/* <CarTrims/> */}
+                    </div>
+                </div>
+                <div id='LookUpDiv'>
+                    {/* <div id='lookUpBtn' onClick={() => {}}>
+                        Look up Vehicle
+                    </div> */}
+                    <Router>
+											<Navbar />
+											<Routes>
+												<Route path='/' element={<Home/>} />
+												<Route path='/about' element={<About/>} />
+												<Route path='/contact' element={<Contact/>} />
+												<Route path='/blogs' element={<Blogs/>} />
+												<Route path='/sign-up' element={<SignUp/>} />
+											</Routes>
+										</Router>
+                </div>
+                <hr/>
+                <br/>
       
         </div>
     </div>
