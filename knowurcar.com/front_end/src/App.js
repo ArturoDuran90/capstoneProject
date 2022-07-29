@@ -12,6 +12,10 @@ import Contact from './pages/contact';
 function App() {
 return (
 	<Home />
+	// <About />,
+	// <Blogs />,
+	// <SignUp />,
+	// <Contact />
 );
 }
 

@@ -1,5 +1,10 @@
 import '..//AppController.css';
 
+// Have a state variable for each option
+// Year/Make/Model/Trim
+// When the Make Changes... Do a fetch to the API. when we get results, generate the optoions for Model
+// When the user selected a model... Do another fetch to get the trims
+
 function CarFilter() {
 
     return(
@@ -21,7 +26,7 @@ function CarFilter() {
             <option value="2021">2021</option>
             <option value="2022">2022</option>
         </select>
-        
+
         {/* carMakes */}
         <select className='box vehicleInput' name="carMakes" id="carMakes">
             <option disabled selected>Make</option>
