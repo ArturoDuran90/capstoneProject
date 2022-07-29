@@ -1,7 +1,6 @@
 import './AppController.css';
 import React from 'react';
 import CarFilter from './DropdownMenus/CarFilter';
-// import Navbar from './components/Navbar';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/home';
 import VehicleInfo from './pages/vehicleInfo';
@@ -9,7 +8,6 @@ import { NavLink } from "react-router-dom";
 
 function AppController() {
     const refreshPage = ()=>{
-		// window.parent.location = window.parent.location.href;
 		window.location.href='/';
 	}
 
@@ -30,20 +28,6 @@ function AppController() {
                 <div id='navBar2' className='box'>
                     <div className='box'>
                         <CarFilter />
-                        {/* <input className='box vehicleInput' type='text' placeholder='Vehicle Year'/> */}
-                        {/* <CarMakes /> */}
-                        {/* <input className='box vehicleInput' type='text' placeholder='Vehicle Make'/> */}
-                        {/* <CarYears /> */}
-                        {/* <div id='LookUpDiv'> */}
-                        {/* <span id='lookUpBtn' onClick={() => {}}>
-                            Look up Model & Trim
-                        </span> */}
-                        {/* </div> */}
-                        {/* <input className='box vehicleInput' type='text' placeholder='Vehicle Model'/> */}
-                        {/* <br/> */}
-                        {/* <CarModels/> */}
-                        {/* <input className='box vehicleInput' type='text' placeholder='Vehicle Trim'/> */}
-                        {/* <CarTrims/> */}
                     </div>
                 </div>
                 <div id='LookUpDiv'>
@@ -57,14 +41,6 @@ function AppController() {
 		    			</Routes>
 					</Router>
                 </div>
-                {/* <div id='LookUpDiv'> */}
-                    {/* <div id='lookUpBtn' onClick={() => {}}> */}
-                        {/* Look up Vehicle */}
-                        
-                    
-                    {/* </div> */}
-                    
-                {/* </div> */}
                 <hr/>
                 <br/>
         </div>

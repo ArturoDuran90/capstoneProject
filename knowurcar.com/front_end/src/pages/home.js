@@ -5,8 +5,6 @@ import VehicleFav1 from '../VehiclesFav/VehicleFav1';
 import VehicleFav2 from '../VehiclesFav/VehicleFav2';
 import VehicleFav3 from '../VehiclesFav/VehicleFav3';
 import { useEffect, useState } from 'react';
-// import Navbar from '../components/Navbar';
-// import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 const Home = () => {
   const [favCars, setFavCars] = useState([]);
