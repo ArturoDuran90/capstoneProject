@@ -1,7 +1,39 @@
 import '..//AppController.css';
+import { useEffect, useState } from 'react';
 
 // Have a state variable for each option
+const [year, setYear] = useState('');
+const [make, setMake] = useState('');
+const [model, setModel] = useState('');
+const [trim, setTrim] = useState('');
+
+const [completeVehicle, setCompleteVehicle] = useState('');
 // Year/Make/Model/Trim
+
+useEffect(() => {
+  console.log(`Year: ${yearInput} Make: ${makeInput} Model: ${modelInput} Trim: ${trimInput}`)
+
+  var vehicleYear = people.filter((person) => {
+    return person.firstName.toLowerCase().includes(yearInput.toLowerCase()) || 
+      person.lastName.toLowerCase().includes(yearInput.toLowerCase())}
+  );
+
+  var vehicleMake = vehicleYear.filter((person) => {
+    return person.username.toLowerCase().includes(makeInput.toLowerCase())}
+  );
+
+  var vehicleModel = vehicleMake.filter((person) => {
+    return person.gender.toLowerCase().includes(modelInput.toLowerCase())}
+  );
+
+  var vehicleTrim = vehicleModel.filter((person) => {
+    return person.age.toString().includes(trimInput.toLowerCase())}
+  );
+  
+  setCompleteVehicle(vehicleTrim);
+
+}, [yearInput, makeInput, modelInput, trimInput]);
+
 // When the Make Changes... Do a fetch to the API. when we get results, generate the optoions for Model
 // When the user selected a model... Do another fetch to get the trims
 
@@ -9,8 +41,8 @@ function CarFilter() {
 
     return(
         <>
-        {/* CarYears */}
-        <select className='box vehicleInput' name="carMakes" id="carMakes">
+        {/* Car Years */}
+        <select className='box vehicleInput' name="carMakes" id="carMakes" onChange={setYear(value)}>
             {/* <option value="" disabled selected>Year</option> */}
             <option value="2010">2010</option>
             <option value="2011">2011</option>
@@ -27,8 +59,8 @@ function CarFilter() {
             <option value="2022">2022</option>
         </select>
 
-        {/* carMakes */}
-        <select className='box vehicleInput' name="carMakes" id="carMakes">
+        {/* Car Makes */}
+        <select className='box vehicleInput' name="carMakes" id="carMakes" onChange={setMake(value)}>
             {/* <option disabled selected>Make</option> */}
             <option value="Abarth">Abarth</option>
             <option value="Acura">Acura</option>
@@ -93,14 +125,14 @@ function CarFilter() {
         
 
         {/* Car Models */}
-        <select className='box vehicleInput' name="carModels" id="carModels">
+        <select className='box vehicleInput' name="carModels" id="carModels" onChange={setModel(value)}>
             {/* <option value="" disabled selected>Model</option> */}
             <option value="Model A">Model A</option>
             <option value="Model B">Model B</option>
         </select>
         
-        {/* CarTrims */}
-        <select className='box vehicleInput' name="carTrims" id="carTrims">
+        {/* Car Trims */}
+        <select className='box vehicleInput' name="carTrims" id="carTrims" onChange={setTrim(value)}>
             {/* <option value="" disabled selected>Trim</option> */}
             <option value="Trim 1">Trim 1</option>
             <option value="Trim 2">Trim 2</option>
