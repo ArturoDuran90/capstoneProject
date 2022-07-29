@@ -26,8 +26,10 @@ const Home = () => {
 
 return (
 	<div id='insideContainer'>
+  <br/>
                 <div id='vehicleFavContainer' className='box'>
                     <div id='vehicleFav1' className='box'>
+                    <br/>
                     {
                         favCars.car1?.map((car, index) => (
                         <div className='box' id='car1'> 

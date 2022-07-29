@@ -1,28 +1,14 @@
 import React from "react";
-import { Nav, NavLink, NavMenu }
-	from "./NavbarElements";
+// import { Nav, NavLink, NavMenu }
+// 	from "./NavbarElements";
+import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
 return (
-	<>
-	<Nav>
-		<NavMenu>
-		<NavLink to="/about" activestyle>
-			About
+		<NavLink id='lookUpBtn' to="/vehicleInfo">
+			Look Up Vehicle
 		</NavLink>
-		<NavLink to="/contact" activestyle>
-			Contact Us
-		</NavLink>
-		<NavLink to="/blogs" activestyle>
-			Blogs
-		</NavLink>
-		<NavLink to="/sign-up" activestyle>
-			Sign Up
-		</NavLink>
-		</NavMenu>
-	</Nav>
-	</>
-);
+	);
 };
 
 export default Navbar;

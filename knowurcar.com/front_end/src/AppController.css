@@ -9,6 +9,8 @@
     margin-bottom: 0px;
     padding-top: 0px;
     padding-bottom: 0px;
+    margin-right:0px;
+    margin-left: 0px;
     align-items: center;
     align-content: center;
     user-select: none;
@@ -17,6 +19,9 @@
   #container {
     padding-top: 0px;
     margin-top: 0px;
+  }
+  .App {
+    background-color: #004346;
   }
   hr {
     margin-right: 10px;
@@ -35,10 +40,6 @@
     margin: 15px;
     color: white;
   }
-  /* .vehicleInput {
-    background-color: black;
-    color:white;
-  } */
   ul {
     list-style: none;
     font-size: 15px;
@@ -121,10 +122,11 @@
     flex: 1;
   }
   #lookUpBtn {
-    margin-top: 2px;
-    margin-bottom: 2px;
-    padding-bottom: 2px;
-    padding-top: 2px;
+    margin-top: 3px;
+    margin-bottom: 3px;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
     flex: 1;
     border: 1px solid #000;
     width: 140px;
@@ -135,21 +137,22 @@
     font-size: 15px;
     cursor: pointer;
     color: black;
-    border-radius: 5px;
+    border-radius: 3px;
     background-color: white;
+    text-decoration: none;
   }
   #navBar1 {
     background-color: lightgray;
     position: sticky;
     top: 0px;
-    padding-left: 10px;
-    padding-right: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
     margin-top: 0px;
-    padding-top: 0px;
+    padding-top: 15px;
     margin-bottom: 0px;
     padding-bottom: 0px;
     margin-top: 0px;
-    padding-top: 5px;
+    /* padding-top: 5px; */
     height: fit-content;
     width: -moz-fit-content;
     width: 100%;
@@ -158,13 +161,14 @@
   }
   .navItem {
     display: inline-block;
+    cursor: pointer;
   }
   /* .navItem > img {
     float: left;
   } */
   .navLogo {
     max-width: fit-content;
-    cursor: pointer;
+    /* cursor: pointer; */
     margin-left: 10px;
     margin-top: 10px;
     margin-bottom: 0px;
@@ -175,7 +179,7 @@
   .kulightNav {
     margin-left: auto;
     margin-right: 0px;
-    padding-top: 1.7em;
+    padding-top: 1em;
     padding-right: 1em;
     font-weight: bold;
     max-width: fit-content;
@@ -385,6 +389,12 @@
     max-width: 800px;
     width: 100%;
   }
+  #vehicleFav2Box {
+    border-right: none;
+    border-left: none;
+    border-bottom: 1px solid white;
+    border-top: 1px solid white;
+  }
   #personalFav {
     display: none;
   }
@@ -407,6 +417,12 @@
     margin: 0px;
     margin: 0px;
   }
+  #vehicleFav2Box {
+    border-right: none;
+    border-left: none;
+    border-bottom: 1px solid white;
+    border-top: 1px solid white;
+  }
   #personalFav {
     display: none;
   }
@@ -423,6 +439,12 @@
     flex-wrap: wrap;
     max-width: 760px;
     width: 100%;
+  }
+  #vehicleFav2Box {
+    border-right: none;
+    border-left: none;
+    border-bottom: 1px solid white;
+    border-top: 1px solid white;
   }
   #personalFav {
     display: none;
