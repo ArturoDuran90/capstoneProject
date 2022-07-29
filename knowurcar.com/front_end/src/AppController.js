@@ -24,7 +24,7 @@ function AppController() {
                         <a href="#lightLink">Info about Dashboard Lights. Click Here!</a>
                     </span>
                 </div>
-								<div className='box navBar2Text'>
+				<div className='box navBar2Text'>
                     <p className="navBar2Text">Select your vehicle below for more information.</p>
                 </div>
                 <div id='navBar2' className='box'>
