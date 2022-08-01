@@ -10,29 +10,44 @@ const [trim, setTrim] = useState('');
 const [completeVehicle, setCompleteVehicle] = useState('');
 // Year/Make/Model/Trim
 
-useEffect(() => {
-  console.log(`Year: ${yearInput} Make: ${makeInput} Model: ${modelInput} Trim: ${trimInput}`)
+// useEffect(() => {
+//   console.log(`Year: ${yearInput} Make: ${makeInput} Model: ${modelInput} Trim: ${trimInput}`)
 
-  var vehicleYear = people.filter((person) => {
-    return person.firstName.toLowerCase().includes(yearInput.toLowerCase()) || 
-      person.lastName.toLowerCase().includes(yearInput.toLowerCase())}
-  );
+//   var vehicleYear = people.filter((person) => {
+//     return person.firstName.toLowerCase().includes(yearInput.toLowerCase()) || 
+//       person.lastName.toLowerCase().includes(yearInput.toLowerCase())}
+//   );
 
-  var vehicleMake = vehicleYear.filter((person) => {
-    return person.username.toLowerCase().includes(makeInput.toLowerCase())}
-  );
+//   var vehicleMake = vehicleYear.filter((person) => {
+//     return person.username.toLowerCase().includes(makeInput.toLowerCase())}
+//   );
 
-  var vehicleModel = vehicleMake.filter((person) => {
-    return person.gender.toLowerCase().includes(modelInput.toLowerCase())}
-  );
+//   var vehicleModel = vehicleMake.filter((person) => {
+//     return person.gender.toLowerCase().includes(modelInput.toLowerCase())}
+//   );
 
-  var vehicleTrim = vehicleModel.filter((person) => {
-    return person.age.toString().includes(trimInput.toLowerCase())}
-  );
+//   var vehicleTrim = vehicleModel.filter((person) => {
+//     return person.age.toString().includes(trimInput.toLowerCase())}
+//   );
   
-  setCompleteVehicle(vehicleTrim);
+//   setCompleteVehicle(vehicleTrim);
 
-}, [yearInput, makeInput, modelInput, trimInput]);
+// }, [yearInput, makeInput, modelInput, trimInput]);
+
+useEffect(() => {
+  getData();
+}, []);
+
+const getData = () => {
+  //var url = `https://randomuser.me/api/?results=500`;
+  var url = `http://localhost:4000/getRandom/500`
+  fetch(url)
+    .then(r => r.json(0))
+    .then(data => {
+      setPeople(data.results);
+      setFilteredPeople(data.results);
+    }).catch(e => console.log(e));
+}
 
 // When the Make Changes... Do a fetch to the API. when we get results, generate the optoions for Model
 // When the user selected a model... Do another fetch to get the trims
@@ -121,8 +136,6 @@ function CarFilter() {
             <option value="Volvo">Volvo</option>
             <option value="Wiesmann">Wiesmann</option>
         </select> 
-
-        
 
         {/* Car Models */}
         <select className='box vehicleInput' name="carModels" id="carModels" onChange={setModel(value)}>
