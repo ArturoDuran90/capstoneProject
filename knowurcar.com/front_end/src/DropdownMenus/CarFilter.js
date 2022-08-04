@@ -1,63 +1,78 @@
 import '..//AppController.css';
+import React from 'react';
 import { useEffect, useState } from 'react';
 
 // Have a state variable for each option
-const [year, setYear] = useState('');
-const [make, setMake] = useState('');
-const [model, setModel] = useState('');
-const [trim, setTrim] = useState('');
 
-const [completeVehicle, setCompleteVehicle] = useState('');
+
+// const [completeVehicle, setCompleteVehicle] = useState('');
 // Year/Make/Model/Trim
 
+
+
 // useEffect(() => {
-//   console.log(`Year: ${yearInput} Make: ${makeInput} Model: ${modelInput} Trim: ${trimInput}`)
+//   getData();
+// }, []);
 
-//   var vehicleYear = people.filter((person) => {
-//     return person.firstName.toLowerCase().includes(yearInput.toLowerCase()) || 
-//       person.lastName.toLowerCase().includes(yearInput.toLowerCase())}
-//   );
-
-//   var vehicleMake = vehicleYear.filter((person) => {
-//     return person.username.toLowerCase().includes(makeInput.toLowerCase())}
-//   );
-
-//   var vehicleModel = vehicleMake.filter((person) => {
-//     return person.gender.toLowerCase().includes(modelInput.toLowerCase())}
-//   );
-
-//   var vehicleTrim = vehicleModel.filter((person) => {
-//     return person.age.toString().includes(trimInput.toLowerCase())}
-//   );
-  
-//   setCompleteVehicle(vehicleTrim);
-
-// }, [yearInput, makeInput, modelInput, trimInput]);
-
-useEffect(() => {
-  getData();
-}, []);
-
-const getData = () => {
-  //var url = `https://randomuser.me/api/?results=500`;
-  var url = `http://localhost:4000/getRandom/500`
-  fetch(url)
-    .then(r => r.json(0))
-    .then(data => {
-      setPeople(data.results);
-      setFilteredPeople(data.results);
-    }).catch(e => console.log(e));
-}
+// const getData = () => {
+//   //var url = `https://randomuser.me/api/?results=500`;
+//   var url = `http://localhost:4000/getRandom/500`
+//   fetch(url)
+//     .then(r => r.json(0))
+//     .then(data => {
+//       setPeople(data.results);
+//       setFilteredPeople(data.results);
+//     }).catch(e => console.log(e));
+// }
 
 // When the Make Changes... Do a fetch to the API. when we get results, generate the optoions for Model
 // When the user selected a model... Do another fetch to get the trims
 
+
+
 function CarFilter() {
+
+const [year, setYear] = useState();
+// const [make, setMake] = useState([]);
+const [model, setModel] = useState([]);
+// const [trim, setTrim] = useState('');
+
+// const modelsURL = `https://vpic.nhtsa.dot.gov/api/vehicles/getmodelsformakeyear/make/${make}/modelyear/${year}?format=json`;
+
+const handleSelectYear=(e)=>{
+    // console.log(e);
+    setYear(e.target.value);
+    console.log(year);
+}
+
+// const handleSelectMake=(e)=>{
+//     console.log(e);
+//     setMake(e)
+// }
+
+    useEffect(() => {
+        // fetch(`https://vpic.nhtsa.dot.gov/api/vehicles/getmodelsformakeyear/make/kia/modelyear/2021?format=json`)
+        // // .then(resp=>resp)
+        // .then(resp=>setModel(resp.results[0].Model_Name))
+        // console.log({model});
+        getData();
+    
+    },[]);
+
+    const getData = () => {
+        //var url = `https://randomuser.me/api/?results=500`;
+        var url = `https://vpic.nhtsa.dot.gov/api/vehicles/getmodelsformakeyear/make/kia/modelyear/${year}?format=json`
+        fetch(url)
+            .then(r => r.json(0))
+            .then(data => {
+            setModel(data.Results);
+        }).catch(e => console.log(e));
+    }
 
     return(
         <>
         {/* Car Years */}
-        <select className='box vehicleInput' name="carMakes" id="carMakes" onChange={setYear(value)}>
+        <select className='box vehicleInput' name="carMakes" id="carMakes" onChange={handleSelectYear}>
             {/* <option value="" disabled selected>Year</option> */}
             <option value="2010">2010</option>
             <option value="2011">2011</option>
@@ -75,7 +90,7 @@ function CarFilter() {
         </select>
 
         {/* Car Makes */}
-        <select className='box vehicleInput' name="carMakes" id="carMakes" onChange={setMake(value)}>
+        <select className='box vehicleInput' name="carMakes" id="carMakes">
             {/* <option disabled selected>Make</option> */}
             <option value="Abarth">Abarth</option>
             <option value="Acura">Acura</option>
@@ -138,20 +153,33 @@ function CarFilter() {
         </select> 
 
         {/* Car Models */}
-        <select className='box vehicleInput' name="carModels" id="carModels" onChange={setModel(value)}>
+        <select className='box vehicleInput' name="carModels" id="carModels">
             {/* <option value="" disabled selected>Model</option> */}
-            <option value="Model A">Model A</option>
-            <option value="Model B">Model B</option>
+            {/* <option value="Model A">Model A</option>
+            <option value="Model B">Model B</option> */}
+            {/* {
+                model.map(x=>{
+                    return(
+                        <option title={x.Model_ID}>{x.Model_Name}</option>
+                    )})
+            } */}
+
+            {model?.map(models => (
+                <option key={models.Model_Name} value={models.Model_Name}>
+                    {models.Model_Name}
+                </option>
+            ))}
         </select>
         
         {/* Car Trims */}
-        <select className='box vehicleInput' name="carTrims" id="carTrims" onChange={setTrim(value)}>
+        <select className='box vehicleInput' name="carTrims" id="carTrims">
             {/* <option value="" disabled selected>Trim</option> */}
             <option value="Trim 1">Trim 1</option>
             <option value="Trim 2">Trim 2</option>
         </select>
         </>
     )    
+        // }
 }
 
 export default CarFilter;
