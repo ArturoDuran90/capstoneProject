@@ -32,48 +32,43 @@ import { useEffect, useState } from 'react';
 
 function CarFilter() {
 
-const [year, setYear] = useState();
-// const [make, setMake] = useState([]);
-const [model, setModel] = useState([]);
-// const [trim, setTrim] = useState('');
+    const [year, setYear] = useState();
+    const [make, setMake] = useState();
+    const [model, setModel] = useState();
 
-// const modelsURL = `https://vpic.nhtsa.dot.gov/api/vehicles/getmodelsformakeyear/make/${make}/modelyear/${year}?format=json`;
+    var modelsURL = `https://vpic.nhtsa.dot.gov/api/vehicles/getmodelsformakeyear/make/${make}/modelyear/${year}?format=json`;
+    console.log(modelsURL);
 
-const handleSelectYear=(e)=>{
-    // console.log(e);
-    setYear(e.target.value);
-    console.log(year);
-}
+    // const [trim, setTrim] = useState('');
 
-// const handleSelectMake=(e)=>{
-//     console.log(e);
-//     setMake(e)
-// }
+    // const modelsURL = `https://vpic.nhtsa.dot.gov/api/vehicles/getmodelsformakeyear/make/${make}/modelyear/${year}?format=json`;
+
+    const handleSelectYear=(e)=>{
+        // console.log(e);
+        setYear(e.target.value);
+        // console.log(year);
+    }
+
+    const handleSelectMake=(e)=>{
+        setMake(e.target.value);
+        // console.log(year);
+    }
 
     useEffect(() => {
-        // fetch(`https://vpic.nhtsa.dot.gov/api/vehicles/getmodelsformakeyear/make/kia/modelyear/2021?format=json`)
-        // // .then(resp=>resp)
-        // .then(resp=>setModel(resp.results[0].Model_Name))
-        // console.log({model});
-        getData();
-    
-    },[]);
-
-    const getData = () => {
-        //var url = `https://randomuser.me/api/?results=500`;
-        var url = `https://vpic.nhtsa.dot.gov/api/vehicles/getmodelsformakeyear/make/kia/modelyear/${year}?format=json`
-        fetch(url)
+        fetch(modelsURL)
             .then(r => r.json(0))
             .then(data => {
-            setModel(data.Results);
-        }).catch(e => console.log(e));
-    }
+                // setMake(data.Results);
+                setModel(data.Results);
+            }).catch(e => console.log(e));
+    
+    },[model]);
 
     return(
         <>
         {/* Car Years */}
         <select className='box vehicleInput' name="carMakes" id="carMakes" onChange={handleSelectYear}>
-            {/* <option value="" disabled selected>Year</option> */}
+            <option value="Year" disabled selected>Year</option>
             <option value="2010">2010</option>
             <option value="2011">2011</option>
             <option value="2012">2012</option>
@@ -90,8 +85,8 @@ const handleSelectYear=(e)=>{
         </select>
 
         {/* Car Makes */}
-        <select className='box vehicleInput' name="carMakes" id="carMakes">
-            {/* <option disabled selected>Make</option> */}
+        <select className='box vehicleInput' name="carMakes" id="carMakes" onChange={handleSelectMake}>
+            <option value="Make" disabled selected>Make</option>
             <option value="Abarth">Abarth</option>
             <option value="Acura">Acura</option>
             <option value="Alfa Romeo">Alfa Romeo</option>
@@ -154,7 +149,7 @@ const handleSelectYear=(e)=>{
 
         {/* Car Models */}
         <select className='box vehicleInput' name="carModels" id="carModels">
-            {/* <option value="" disabled selected>Model</option> */}
+            <option value="Model" disabled selected>Model</option>
             {/* <option value="Model A">Model A</option>
             <option value="Model B">Model B</option> */}
             {/* {
