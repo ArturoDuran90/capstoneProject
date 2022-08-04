@@ -35,40 +35,95 @@ function CarFilter() {
     const [year, setYear] = useState();
     const [make, setMake] = useState();
     const [model, setModel] = useState();
+    const [vehTrim, setTrim] = useState();
 
     var modelsURL = `https://vpic.nhtsa.dot.gov/api/vehicles/getmodelsformakeyear/make/${make}/modelyear/${year}?format=json`;
-    console.log(modelsURL);
 
-    // const [trim, setTrim] = useState('');
+    var apiKey = '0NEBVTUCJUVxiMmj8eQjvjFH7VxCuvwp55IgqT3G';
 
-    // const modelsURL = `https://vpic.nhtsa.dot.gov/api/vehicles/getmodelsformakeyear/make/${make}/modelyear/${year}?format=json`;
+    var trimsURL= `https://vehapi.com/api/v1/car-lists/get/car/trims/${year}/${make}/${model}`;
+    // console.log(trimsURL);
 
     const handleSelectYear=(e)=>{
         // console.log(e);
         setYear(e.target.value);
-        // console.log(year);
+        console.log("Year: " + (e.target.value));
     }
 
     const handleSelectMake=(e)=>{
         setMake(e.target.value);
-        // console.log(year);
+        console.log("Make: " + (e.target.value));
+    }
+
+    const handleSelectModel=(e)=>{
+        setModel(e.target.value);
+        console.log("Model: " + (e.target.value));
+        console.log(trimsURL);
     }
 
     useEffect(() => {
         fetch(modelsURL)
             .then(r => r.json(0))
             .then(data => {
-                // setMake(data.Results);
                 setModel(data.Results);
             }).catch(e => console.log(e));
     
     },[model]);
 
+    // useEffect(() => {
+    //     fetch(trimsURL, requestOptions)
+    //         .then(r => r.json(0))
+    //         .then(data => {
+    //             setTrim(data.Results);
+    //         }).catch(e => console.log(e));
+    
+    // },[model]);
+
+    var myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/json");
+        myHeaders.append("X-Requested-With", "XMLHttpRequest");
+        myHeaders.append("Authorization", `Bearer ${apiKey}`)
+    
+    // var myAuthorization = new Authorization();
+    //     myAuthorization.append("Token", apiKey);
+
+    var requestOptions = {
+        method: 'GET',
+        headers: myHeaders,
+        redirect: 'follow',
+        Authorization: `Bearer ${apiKey}`,
+    };
+
+    useEffect(()=>{
+        fetch(trimsURL, requestOptions)
+            // .then(res => res.json())
+            // .then(json => setTrim(json));
+
+            .then(r => r.json(0))
+            .then(json => setTrim(json))
+            // .then(data => {
+            //     setTrim(data.Results);
+            // }).catch(e => console.log(e))
+            .catch(e => console.log(e));
+        console.log(vehTrim);
+    },[]);
+
+
     return(
         <>
         {/* Car Years */}
-        <select className='box vehicleInput' name="carMakes" id="carMakes" onChange={handleSelectYear}>
+        <select className='box vehicleInput' name="carYears" id="carYears" onChange={handleSelectYear}>
             <option value="Year" disabled selected>Year</option>
+            <option value="2000">2000</option>
+            <option value="2001">2001</option>
+            <option value="2002">2002</option>
+            <option value="2003">2003</option>
+            <option value="2004">2004</option>
+            <option value="2005">2005</option>
+            <option value="2006">2006</option>
+            <option value="2007">2007</option>
+            <option value="2008">2008</option>
+            <option value="2009">2009</option>
             <option value="2010">2010</option>
             <option value="2011">2011</option>
             <option value="2012">2012</option>
@@ -81,7 +136,6 @@ function CarFilter() {
             <option value="2019">2019</option>
             <option value="2020">2020</option>
             <option value="2021">2021</option>
-            <option value="2022">2022</option>
         </select>
 
         {/* Car Makes */}
@@ -148,16 +202,8 @@ function CarFilter() {
         </select> 
 
         {/* Car Models */}
-        <select className='box vehicleInput' name="carModels" id="carModels">
+        <select className='box vehicleInput' name="carModels" id="carModels" onChange={handleSelectModel}>
             <option value="Model" disabled selected>Model</option>
-            {/* <option value="Model A">Model A</option>
-            <option value="Model B">Model B</option> */}
-            {/* {
-                model.map(x=>{
-                    return(
-                        <option title={x.Model_ID}>{x.Model_Name}</option>
-                    )})
-            } */}
 
             {model?.map(models => (
                 <option key={models.Model_Name} value={models.Model_Name}>
@@ -168,9 +214,12 @@ function CarFilter() {
         
         {/* Car Trims */}
         <select className='box vehicleInput' name="carTrims" id="carTrims">
-            {/* <option value="" disabled selected>Trim</option> */}
-            <option value="Trim 1">Trim 1</option>
-            <option value="Trim 2">Trim 2</option>
+            <option value="" disabled selected>Trim</option>
+            {vehTrim?.map(trims => (
+                <option key={trims.trim} value={trims.trim}>
+                    {trims.trim}
+                </option>
+            ))}
         </select>
         </>
     )    
