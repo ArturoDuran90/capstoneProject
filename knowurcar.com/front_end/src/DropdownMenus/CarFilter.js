@@ -33,19 +33,24 @@ import { useEffect, useState } from 'react';
 function CarFilter() {
 
     const [year, setYear] = useState();
+
     const [make, setMake] = useState();
+
     const [model, setModel] = useState();
+    const [modelSelect, setModelSelect] = useState();
+
     const [vehTrim, setTrim] = useState();
+    const [vehTrimSelect, setTrimSelect] = useState();
+
+    const completeVehicle = year + make + modelSelect + vehTrimSelect;
 
     var modelsURL = `https://vpic.nhtsa.dot.gov/api/vehicles/getmodelsformakeyear/make/${make}/modelyear/${year}?format=json`;
 
     var apiKey = '0NEBVTUCJUVxiMmj8eQjvjFH7VxCuvwp55IgqT3G';
 
-    var trimsURL= `https://vehapi.com/api/v1/car-lists/get/car/trims/${year}/${make}/${model}`;
-    // console.log(trimsURL);
+    var trimsURL= `https://vehapi.com/api/v1/car-lists/get/car/trims/${year}/${make}/${modelSelect}`;
 
     const handleSelectYear=(e)=>{
-        // console.log(e);
         setYear(e.target.value);
         console.log("Year: " + (e.target.value));
     }
@@ -56,9 +61,14 @@ function CarFilter() {
     }
 
     const handleSelectModel=(e)=>{
-        setModel(e.target.value);
+        setModelSelect(e.target.value);
         console.log("Model: " + (e.target.value));
-        console.log(trimsURL);
+    }
+
+    const handleSelectTrim=(e)=>{
+        setTrimSelect(e.target.value);
+        console.log("Trim: " + (e.target.value));
+        console.log(completeVehicle);
     }
 
     useEffect(() => {
@@ -68,7 +78,7 @@ function CarFilter() {
                 setModel(data.Results);
             }).catch(e => console.log(e));
     
-    },[model]);
+    },[make]);
 
     // useEffect(() => {
     //     fetch(trimsURL, requestOptions)
@@ -83,30 +93,20 @@ function CarFilter() {
         myHeaders.append("Content-Type", "application/json");
         myHeaders.append("X-Requested-With", "XMLHttpRequest");
         myHeaders.append("Authorization", `Bearer ${apiKey}`)
-    
-    // var myAuthorization = new Authorization();
-    //     myAuthorization.append("Token", apiKey);
 
     var requestOptions = {
         method: 'GET',
         headers: myHeaders,
         redirect: 'follow',
-        Authorization: `Bearer ${apiKey}`,
+        authorization: `Bearer ${apiKey}`,
     };
 
     useEffect(()=>{
         fetch(trimsURL, requestOptions)
-            // .then(res => res.json())
-            // .then(json => setTrim(json));
-
             .then(r => r.json(0))
-            .then(json => setTrim(json))
-            // .then(data => {
-            //     setTrim(data.Results);
-            // }).catch(e => console.log(e))
+            .then(data => setTrim(data))
             .catch(e => console.log(e));
-        console.log(vehTrim);
-    },[]);
+    },[modelSelect]);
 
 
     return(
@@ -206,14 +206,14 @@ function CarFilter() {
             <option value="Model" disabled selected>Model</option>
 
             {model?.map(models => (
-                <option key={models.Model_Name} value={models.Model_Name}>
+                <option key={models.Model_ID} value={models.Model_Name}>
                     {models.Model_Name}
                 </option>
             ))}
         </select>
         
         {/* Car Trims */}
-        <select className='box vehicleInput' name="carTrims" id="carTrims">
+        <select className='box vehicleInput' name="carTrims" id="carTrims" onChange={handleSelectTrim}>
             <option value="" disabled selected>Trim</option>
             {vehTrim?.map(trims => (
                 <option key={trims.trim} value={trims.trim}>
