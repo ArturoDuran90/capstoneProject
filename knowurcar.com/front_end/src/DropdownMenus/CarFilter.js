@@ -37,22 +37,25 @@ function CarFilter() {
     const [year, setYear] = useState();
 
     const [make, setMake] = useState();
+    const [makeSelect, setMakeSelect] = useState('');
 
     const [model, setModel] = useState();
-    const [modelSelect, setModelSelect] = useState();
+    const [modelSelect, setModelSelect] = useState('');
 
-    const [vehTrim, setTrim] = useState();
-    const [vehTrimSelect, setTrimSelect] = useState();
+    const [trim, setTrim] = useState();
+    const [vehTrimSelect, setTrimSelect] = useState('');
 
-    const completeVehicle = year + " " + make + " " + modelSelect + " " + vehTrimSelect;
+    const completeVehicle = `${year} ${makeSelect} ${modelSelect} ${vehTrimSelect}`;
 
-    var makeURL = `https://vehapi.com/api/v1/car-lists/get/all/car/models/${make}`;
+    var makesURL = `https://vehapi.com/api/v1/car-lists/get/car/makes/${year}`;
 
-    var modelsURL = `https://vpic.nhtsa.dot.gov/api/vehicles/getmodelsformakeyear/make/${make}/modelyear/${year}?format=json`;
+    var modelsURL = `https://vehapi.com/api/v1/car-lists/get/all/car/models/${makeSelect}`;
+
+    // var modelsURL = `https://vpic.nhtsa.dot.gov/api/vehicles/getmodelsformakeyear/make/${make}/modelyear/${year}?format=json`;
 
     var apiKey = '0NEBVTUCJUVxiMmj8eQjvjFH7VxCuvwp55IgqT3G';
 
-    var trimsURL= `https://vehapi.com/api/v1/car-lists/get/car/trims/${year}/${make}/${modelSelect}`;
+    var trimsURL= `https://vehapi.com/api/v1/car-lists/get/car/trims/${year}/${makeSelect}/${modelSelect}`;
 
     var myHeaders = new Headers();
         myHeaders.append("Content-Type", "application/json");
@@ -72,7 +75,7 @@ function CarFilter() {
     }
 
     const handleSelectMake=(e)=>{
-        setMake(e.target.value);
+        setMakeSelect(e.target.value);
         console.log("Make: " + (e.target.value));
     }
 
@@ -84,17 +87,21 @@ function CarFilter() {
     const handleSelectTrim=(e)=>{
         setTrimSelect(e.target.value);
         console.log("Trim: " + (e.target.value));
-        console.log(completeVehicle);
-        console.log(vehTrimSelect);
     }
 
     useEffect(() => {
-        fetch(modelsURL)
-            .then(r => r.json(0))
-            .then(data => {
-                setModel(data.Results);
-            }).catch(e => console.log(e));
-    },[make]);
+        fetch(makesURL, requestOptions)
+        .then(r => r.json(0))
+        .then(data => setMake(data))
+        .catch(e => console.log(e));
+    },[year]);
+
+    useEffect(() => {
+        fetch(modelsURL, requestOptions)
+        .then(r => r.json(0))
+        .then(data => setModel(data))
+        .catch(e => console.log(e));
+    },[makeSelect]);
 
     useEffect(()=>{
         fetch(trimsURL, requestOptions)
@@ -103,13 +110,13 @@ function CarFilter() {
             .catch(e => console.log(e));
     },[modelSelect]);
 
-    // useEffect(() => {
-    //     fetch(trimsURL, requestOptions)
-    //         .then(r => r.json(0))
-    //         .then(data => {
-    //             setTrim(data.Results);
-    //         }).catch(e => console.log(e));
-    // },[]);
+    useEffect(()=>{
+        // fetch(trimsURL, requestOptions)
+        //     .then(r => r.json(0))
+        //     .then(data => setTrim(data))
+        //     .catch(e => console.log(e));
+        console.log("Vehicle Selected: " + completeVehicle);
+    },[vehTrimSelect]);
 
     return(
         <>
@@ -143,64 +150,12 @@ function CarFilter() {
         {/* Car Makes */}
         <select className='box vehicleInput' name="carMakes" id="carMakes" onChange={handleSelectMake}>
             <option value="Make" disabled selected>Make</option>
-            <option value="Abarth">Abarth</option>
-            <option value="Acura">Acura</option>
-            <option value="Alfa Romeo">Alfa Romeo</option>
-            <option value="Aston Martin">Aston Martin</option>
-            <option value="Audi">Audi</option>
-            <option value="Bentley">Bentley</option>
-            <option value="BMW">BMW</option>
-            <option value="Buick">Buick</option>
-            <option value="Cadillac">Cadillac</option>
-            <option value="Chevrolet">Chevrolet</option>
-            <option value="Chrysler">Chrysler</option>
-            <option value="Citroen">Citroen</option>
-            <option value="Dacia">Dacia</option>
-            <option value="Dodge">Dodge</option>
-            <option value="Ferrari">Ferrari</option>
-            <option value="Fiat">Fiat</option>
-            <option value="Ford">Ford</option>
-            <option value="GMC">GMC</option>
-            <option value="Honda">Honda</option>
-            <option value="Hummer">Hummer</option>
-            <option value="Hyundai">Hyundai</option>
-            <option value="Infiniti">Infiniti</option>
-            <option value="Isuzu">Isuzu</option>
-            <option value="Jaguar">Jaguar</option>
-            <option value="Jeep">Jeep</option>
-            <option value="Kia">Kia</option>
-            <option value="Lamborghini">Lamborghini</option>
-            <option value="Lancia">Lancia</option>
-            <option value="Land Rover">Land Rover</option>
-            <option value="Lexus">Lexus</option>
-            <option value="Lincoln">Lincoln</option>
-            <option value="Lotus">Lotus</option>
-            <option value="Maserati">Maserati</option>
-            <option value="Mazda">Mazda</option>
-            <option value="Mercedes-Benz">Mercedes-Benz</option>
-            <option value="Mercury">Mercury</option>
-            <option value="Mini">Mini</option>
-            <option value="Mitsubishi">Mitsubishi</option>
-            <option value="Nissan">Nissan</option>
-            <option value="Opel">Opel</option>
-            <option value="Peugeot">Peugeot</option>
-            <option value="Pontiac">Pontiac</option>
-            <option value="Porsche">Porsche</option>
-            <option value="Ram">Ram</option>
-            <option value="Renault">Renault</option>
-            <option value="Saab">Saab</option>
-            <option value="Saturn">Saturn</option>
-            <option value="Scion">Scion</option>
-            <option value="Seat">Seat</option>
-            <option value="Skoda">Skoda</option>
-            <option value="Smart">Smart</option>
-            <option value="SsangYong">SsangYong</option>
-            <option value="Subaru">Subaru</option>
-            <option value="Suzuki">Suzuki</option>
-            <option value="Toyota">Toyota</option>
-            <option value="Volkswagen">Volkswagen</option>
-            <option value="Volvo">Volvo</option>
-            <option value="Wiesmann">Wiesmann</option>
+
+            {make?.map(makes => (
+                <option key={makes.make} value={makes.make}>
+                    {makes.make}
+                </option>
+            ))}
         </select> 
 
         {/* Car Models */}
@@ -208,8 +163,8 @@ function CarFilter() {
             <option value="Model" disabled selected>Model</option>
 
             {model?.map(models => (
-                <option key={models.Model_ID} value={models.Model_Name}>
-                    {models.Model_Name}
+                <option key={models.model} value={models.model}>
+                    {models.model}
                 </option>
             ))}
         </select>
@@ -217,7 +172,7 @@ function CarFilter() {
         {/* Car Trims */}
         <select className='box vehicleInput' name="carTrims" id="carTrims" onChange={handleSelectTrim}>
             <option value="Trim" disabled selected>Trim</option>
-            {vehTrim?.map(trims => (
+            {trim?.map(trims => (
                 <option key={trims.trim} value={trims.trim}>
                     {trims.trim}
                 </option>
