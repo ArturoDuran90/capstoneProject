@@ -3,36 +3,11 @@ import React from 'react';
 import { useEffect, useState } from 'react';
 
 // Have a state variable for each option
-
-
-// const [completeVehicle, setCompleteVehicle] = useState('');
 // Year/Make/Model/Trim
-
-
-
-// useEffect(() => {
-//   getData();
-// }, []);
-
-// const getData = () => {
-//   //var url = `https://randomuser.me/api/?results=500`;
-//   var url = `http://localhost:4000/getRandom/500`
-//   fetch(url)
-//     .then(r => r.json(0))
-//     .then(data => {
-//       setPeople(data.results);
-//       setFilteredPeople(data.results);
-//     }).catch(e => console.log(e));
-// }
-
 // When the Make Changes... Do a fetch to the API. when we get results, generate the optoions for Model
 // When the user selected a model... Do another fetch to get the trims
 
-
-
-function CarFilter() {
-
-    
+function CarFilter(props) {
 
     const [year, setYear] = useState();
 
@@ -45,12 +20,18 @@ function CarFilter() {
     const [trim, setTrim] = useState();
     const [vehTrimSelect, setTrimSelect] = useState('');
 
-    const completeVehicle = `${year} ${makeSelect} ${modelSelect} ${vehTrimSelect}`;
+    const completeVehicle = `/${year}/${makeSelect}/${modelSelect}/${vehTrimSelect}`;
+    const completeVehicle2 = completeVehicle.replace(/ /g, '-')
+
+    var apiKeyStats = 'gQuXRTw6a2SLMdd8NxYhv9bABrjAGxD7';
+
+    const completeVehicleStats = `https://apis.solarialabs.com/shine/v1/vehicle-stats/specs?make=${makeSelect}&model=${modelSelect}&year=${year}&full-data=true&apikey=${apiKeyStats}`;
+   
 
     var makesURL = `https://vehapi.com/api/v1/car-lists/get/car/makes/${year}`;
 
-    var modelsURL = `https://vehapi.com/api/v1/car-lists/get/all/car/models/${makeSelect}`;
-
+    var modelsURL = `https://vehapi.com/api/v1/car-lists/get/car/models/${year}/${makeSelect}`;
+    
     // var modelsURL = `https://vpic.nhtsa.dot.gov/api/vehicles/getmodelsformakeyear/make/${make}/modelyear/${year}?format=json`;
 
     var apiKey = '0NEBVTUCJUVxiMmj8eQjvjFH7VxCuvwp55IgqT3G';
@@ -115,7 +96,8 @@ function CarFilter() {
         //     .then(r => r.json(0))
         //     .then(data => setTrim(data))
         //     .catch(e => console.log(e));
-        console.log("Vehicle Selected: " + completeVehicle);
+        console.log("Vehicle Selected: " + completeVehicle2);
+        props.onChange(completeVehicle2);
     },[vehTrimSelect]);
 
     return(
@@ -123,7 +105,7 @@ function CarFilter() {
         {/* Car Years */}
         <select className='box vehicleInput' name="carYears" id="carYears" onChange={handleSelectYear}>
             <option value="Year" disabled selected>Year</option>
-            <option value="2000">2000</option>
+            {/* <option value="2000">2000</option>
             <option value="2001">2001</option>
             <option value="2002">2002</option>
             <option value="2003">2003</option>
@@ -132,7 +114,7 @@ function CarFilter() {
             <option value="2006">2006</option>
             <option value="2007">2007</option>
             <option value="2008">2008</option>
-            <option value="2009">2009</option>
+            <option value="2009">2009</option> */}
             <option value="2010">2010</option>
             <option value="2011">2011</option>
             <option value="2012">2012</option>
@@ -141,10 +123,10 @@ function CarFilter() {
             <option value="2015">2015</option>
             <option value="2016">2016</option>
             <option value="2017">2017</option>
-            <option value="2018">2018</option>
+            {/* <option value="2018">2018</option>
             <option value="2019">2019</option>
             <option value="2020">2020</option>
-            <option value="2021">2021</option>
+            <option value="2021">2021</option> */}
         </select>
 
         {/* Car Makes */}

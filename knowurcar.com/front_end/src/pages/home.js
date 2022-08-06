@@ -3,6 +3,7 @@ import React from 'react';
 import LightsTable from '../LightsTable/LightsTable';
 import VehicleFav1 from '../VehiclesFav/VehicleFav1';
 import VehicleFav2 from '../VehiclesFav/VehicleFav2';
+import DropdownMenus from '../DropdownMenus/dropdownMenus';
 import VehicleFav3 from '../VehiclesFav/VehicleFav3';
 import { useEffect, useState } from 'react';
 
@@ -23,8 +24,10 @@ const Home = () => {
     }
 
 return (
+    <>
+    {/* <DropdownMenus /> */}
 	<div id='insideContainer'>
-  <br/>
+    <br/>
                 <div id='vehicleFavContainer' className='box'>
                     <div id='vehicleFav1' className='box'>
                     <br/>
@@ -147,6 +150,7 @@ return (
                 </footer>
                 <br/>
             </div>
+            </>
 );
 };
 

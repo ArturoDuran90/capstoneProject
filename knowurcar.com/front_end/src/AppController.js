@@ -1,5 +1,6 @@
 import './AppController.css';
 import React from 'react';
+import { useState } from 'react';
 import CarFilter from './DropdownMenus/CarFilter';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/home';
@@ -10,6 +11,8 @@ function AppController() {
     const refreshPage = ()=>{
 		window.location.href='/';
 	}
+
+    const [val, setVal] = useState('');
 
     return (
     <div className="App">
@@ -22,24 +25,27 @@ function AppController() {
                         <a href="#lightLink">Info about Dashboard Lights. Click Here!</a>
                     </span>
                 </div>
+                <div id='dropdownMenus'>
 				<div className='box navBar2Text'>
                     <p className="navBar2Text">Select your vehicle below for more information.</p>
                 </div>
                 <div id='navBar2' className='box'>
                     <div className='box'>
-                        <CarFilter />
+                        <CarFilter onChange={(value)=> setVal(value)}/>
+                        {/* <div>{val}</div> */}
                     </div>
                 </div>
                 <div id='LookUpDiv'>
                     <Router >
-                        <NavLink id='lookUpBtn' to="/vehicleInfo">
+                        <NavLink id='lookUpBtn' to={`/vehicleInfo${val}`}>
 			                Look Up Vehicle
 		                </NavLink>
 						<Routes>
 						    <Route path='/' exact element={<Home/>} />
-                            <Route path='/vehicleInfo' exact element={<VehicleInfo/>} />
+                            <Route path={`/vehicleInfo${val}`} element={<VehicleInfo/>} />
 		    			</Routes>
 					</Router>
+                </div>
                 </div>
                 <hr/>
                 <br/>

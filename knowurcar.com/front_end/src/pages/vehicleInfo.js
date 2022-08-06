@@ -1,7 +1,18 @@
 import React from 'react';
 import LightsTable from '../LightsTable/LightsTable';
 
-const Contact = () => {
+const vehicleInfo = () => {
+
+	// let options = {
+	// 	"url": "urlGoesHere",
+	// 	"method": "GET",
+	// 	"processData": false
+	// }
+	
+	// $.ajax(options).done((response)=>{
+	// 	console.log(response)
+	// })
+	
 return (
 	<>
 	<div>
@@ -21,4 +32,4 @@ return (
 );
 };
 
-export default Contact;
+export default vehicleInfo;
