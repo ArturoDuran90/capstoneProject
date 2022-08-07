@@ -20,12 +20,14 @@ function CarFilter(props) {
     const [trim, setTrim] = useState();
     const [vehTrimSelect, setTrimSelect] = useState('');
 
+    const [compVehSt, setCompVehSt] = useState();
+
     const completeVehicle = `/${year}/${makeSelect}/${modelSelect}/${vehTrimSelect}`;
     const completeVehicle2 = completeVehicle.replace(/ /g, '-')
 
     var apiKeyStats = 'gQuXRTw6a2SLMdd8NxYhv9bABrjAGxD7';
 
-    const completeVehicleStats = `https://apis.solarialabs.com/shine/v1/vehicle-stats/specs?make=${makeSelect}&model=${modelSelect}&year=${year}&full-data=true&apikey=${apiKeyStats}`;
+    const completeVehURL = `https://apis.solarialabs.com/shine/v1/vehicle-stats/specs?make=${makeSelect}&model=${modelSelect}&year=${year}&full-data=true&apikey=${apiKeyStats}`;
    
 
     var makesURL = `https://vehapi.com/api/v1/car-lists/get/car/makes/${year}`;
@@ -48,6 +50,11 @@ function CarFilter(props) {
         headers: myHeaders,
         redirect: 'follow',
         authorization: `Bearer ${apiKey}`,
+    };
+
+    var requestOptions2 = {
+        method: 'GET',
+        processData: 'false',
     };
 
     const handleSelectYear=(e)=>{
@@ -92,11 +99,12 @@ function CarFilter(props) {
     },[modelSelect]);
 
     useEffect(()=>{
-        // fetch(trimsURL, requestOptions)
-        //     .then(r => r.json(0))
-        //     .then(data => setTrim(data))
-        //     .catch(e => console.log(e));
+        fetch(completeVehURL)
+            .then(r => r.json(0))
+            .then(data => setCompVehSt(data))
+            .catch(e => console.log(e));
         console.log("Vehicle Selected: " + completeVehicle2);
+        console.log(compVehSt);
         props.onChange(completeVehicle2);
     },[vehTrimSelect]);
 
