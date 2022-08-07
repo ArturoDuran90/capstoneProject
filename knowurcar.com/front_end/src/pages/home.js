@@ -135,7 +135,6 @@ return (
                                     ))
                                 }
                             </div>
-                        
                         <div id='lightLink'></div>
                     </div>
                 </div>

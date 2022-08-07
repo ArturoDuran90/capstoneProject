@@ -17,6 +17,7 @@ return (
 	<>
 	<div>
 		<h1>Vehicle Info goes here</h1>
+		<div id="lightLink"></div>
 	</div>
 	<hr/>
   <br/>
