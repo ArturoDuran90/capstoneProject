@@ -7,7 +7,10 @@ import { useEffect, useState } from 'react';
 // When the Make Changes... Do a fetch to the API. when we get results, generate the optoions for Model
 // When the user selected a model... Do another fetch to get the trims
 
+// carYear, carMake, carModel, carTrim
 function CarFilter(props) {
+
+    const[disableBtn, setDisableBtn] = React.useState(false);
 
     const [year, setYear] = useState();
 
@@ -20,15 +23,16 @@ function CarFilter(props) {
     const [trim, setTrim] = useState();
     const [vehTrimSelect, setTrimSelect] = useState('');
 
-    const [compVehSt, setCompVehSt] = useState();
+    const [carImages, setCarImages] = useState([]);
 
     const completeVehicle = `/${year}/${makeSelect}/${modelSelect}/${vehTrimSelect}`;
-    const completeVehicle2 = completeVehicle.replace(/ /g, '-')
+    const completeVehicle2 = completeVehicle.replace(/ /g, '-');
 
-    var apiKeyStats = 'gQuXRTw6a2SLMdd8NxYhv9bABrjAGxD7';
+    // var apiKeyStats = 'gQuXRTw6a2SLMdd8NxYhv9bABrjAGxD7';
 
-    const completeVehURL = `https://apis.solarialabs.com/shine/v1/vehicle-stats/specs?make=${makeSelect}&model=${modelSelect}&year=${year}&full-data=true&apikey=${apiKeyStats}`;
-   
+    // const completeVehURL = `https://apis.solarialabs.com/shine/v1/vehicle-stats/specs?make=${makeSelect}&model=${modelSelect}&year=${year}&full-data=true&apikey=${apiKeyStats}`;
+    // var carImagesURL = `https://api.carsxe.com/images?key=e8kazl88v_mbh876r64_w6ouszltm&year=${year}&make=${makeSelect}&model=${modelSelect}&trim=${vehTrimSelect}&format=json`;
+    var carImagesURL = `https://api.carsxe.com/images?key=e8kazl88v_mbh876r64_w6ouszltm&year=2021&make=kia&model=k5&trim=gt-line&format=json`;
 
     var makesURL = `https://vehapi.com/api/v1/car-lists/get/car/makes/${year}`;
 
@@ -52,9 +56,17 @@ function CarFilter(props) {
         authorization: `Bearer ${apiKey}`,
     };
 
+    var myHeaders2 = new Headers();
+        // myHeaders2.append("Content-Type", "application/json");
+        // myHeaders2.append("X-Requested-With", "XMLHttpRequest");
+        myHeaders2.append('Access-Control-Allow-Methods', 'GET', 'OPTIONS');
+        myHeaders2.append("Access-Control-Allow-Origin", "*" )
+
     var requestOptions2 = {
+        mode: 'no-cors',
+        origin: "http://localhost:3000",
         method: 'GET',
-        processData: 'false',
+        headers: myHeaders2,
     };
 
     const handleSelectYear=(e)=>{
@@ -93,19 +105,23 @@ function CarFilter(props) {
 
     useEffect(()=>{
         fetch(trimsURL, requestOptions)
-            .then(r => r.json(0))
-            .then(data => setTrim(data))
-            .catch(e => console.log(e));
+        .then(r => r.json(0))
+        .then(data => setTrim(data))
+        .catch(e => console.log(e));
     },[modelSelect]);
 
     useEffect(()=>{
-        fetch(completeVehURL)
-            .then(r => r.json(0))
-            .then(data => setCompVehSt(data))
-            .catch(e => console.log(e));
-        console.log("Vehicle Selected: " + completeVehicle2);
-        console.log(compVehSt);
-        props.onChange(completeVehicle2);
+        fetch(carImagesURL, requestOptions2)
+        .then(r => r.json(0))
+        .then(data => setCarImages(data))
+        .catch(e => console.log(e))
+        console.log("Vehicle Selected: " + completeVehicle2)
+        console.log("Vehicle Selected: " + carImages)
+        props.onChange(completeVehicle2)
+        // carYear.onChange(year);
+        // carMake.onChange(makeSelect);
+        // carModel.onChange(modelSelect);
+        // carTrim.onChange(vehTrimSelect);
     },[vehTrimSelect]);
 
     return(
@@ -113,7 +129,7 @@ function CarFilter(props) {
         {/* Car Years */}
         <select className='box vehicleInput' name="carYears" id="carYears" onChange={handleSelectYear}>
             <option value="Year" disabled selected>Year</option>
-            {/* <option value="2000">2000</option>
+            <option value="2000">2000</option>
             <option value="2001">2001</option>
             <option value="2002">2002</option>
             <option value="2003">2003</option>
@@ -122,7 +138,7 @@ function CarFilter(props) {
             <option value="2006">2006</option>
             <option value="2007">2007</option>
             <option value="2008">2008</option>
-            <option value="2009">2009</option> */}
+            <option value="2009">2009</option>
             <option value="2010">2010</option>
             <option value="2011">2011</option>
             <option value="2012">2012</option>
@@ -131,10 +147,10 @@ function CarFilter(props) {
             <option value="2015">2015</option>
             <option value="2016">2016</option>
             <option value="2017">2017</option>
-            {/* <option value="2018">2018</option>
+            <option value="2018">2018</option>
             <option value="2019">2019</option>
             <option value="2020">2020</option>
-            <option value="2021">2021</option> */}
+            <option value="2021">2021</option>
         </select>
 
         {/* Car Makes */}
@@ -168,6 +184,22 @@ function CarFilter(props) {
                 </option>
             ))}
         </select>
+
+        <div>
+            {
+                        carImages.images?.map((car, index) => (
+                        <div className='box' id='car1'> 
+                            { car.thumbnailLink != 'N/A'?       
+                                <div>
+                                    <a>
+                                        <img className="imgCar" src={car.thumbnailLink} alt='Vehicle Poster'/>
+                                    </a>
+                                </div> : ''
+                            }
+                        </div>
+                    ))
+                    }
+                    </div>
         </>
     )    
         // }

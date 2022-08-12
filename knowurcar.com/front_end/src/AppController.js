@@ -12,6 +12,9 @@ function AppController() {
 		window.location.href='/';
 	}
 
+    // const [carImages, setCarImages] = useState('');
+    // var carImagesURL = `https://api.carsxe.com/images?key=e8kazl88v_mbh876r64_w6ouszltm&year=${year}&make=${makeSelect}&model=${modelSelect}&trim=${vehTrimSelect}&format=json`;
+
     const [val, setVal] = useState('');
 
     return (
@@ -31,7 +34,7 @@ function AppController() {
                 </div>
                 <div id='navBar2' className='box'>
                     <div className='box'>
-                        <CarFilter onChange={(value)=> setVal(value)}/>
+                        <CarFilter onChange={(props)=> setVal(props)}/>
                         {/* <div>{val}</div> */}
                     </div>
                 </div>
