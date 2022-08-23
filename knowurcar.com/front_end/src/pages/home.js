@@ -4,7 +4,6 @@ import LightsTable from '../LightsTable/LightsTable';
 import VehicleFav1 from '../VehiclesFav/VehicleFav1';
 import VehicleFav2 from '../VehiclesFav/VehicleFav2';
 import VehicleFav3 from '../VehiclesFav/VehicleFav3';
-import DropdownMenus from '../DropdownMenus/dropdownMenus';
 import { useEffect, useState } from 'react';
 
 const Home = () => {
@@ -25,7 +24,6 @@ const Home = () => {
 
 return (
     <>
-    {/* <DropdownMenus /> */}
 	<div id='insideContainer'>
     <br/>
                 <div id='vehicleFavContainer' className='box'>

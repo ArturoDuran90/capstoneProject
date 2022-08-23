@@ -35,7 +35,6 @@ function AppController() {
                 <div id='navBar2' className='box'>
                     <div className='box'>
                         <CarFilter onChange={(props)=> setVal(props)}/>
-                        {/* <div>{val}</div> */}
                     </div>
                 </div>
                 <div id='LookUpDiv'>

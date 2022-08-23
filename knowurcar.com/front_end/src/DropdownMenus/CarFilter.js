@@ -10,8 +10,6 @@ import { useEffect, useState } from 'react';
 // carYear, carMake, carModel, carTrim
 function CarFilter(props) {
 
-    const[disableBtn, setDisableBtn] = React.useState(false);
-
     const [year, setYear] = useState();
 
     const [make, setMake] = useState();
@@ -23,7 +21,7 @@ function CarFilter(props) {
     const [trim, setTrim] = useState();
     const [vehTrimSelect, setTrimSelect] = useState('');
 
-    const [carImages, setCarImages] = useState([]);
+    // const [carImages, setCarImages] = useState([]);
 
     const completeVehicle = `/${year}/${makeSelect}/${modelSelect}/${vehTrimSelect}`;
     const completeVehicle2 = completeVehicle.replace(/ /g, '-');
@@ -32,7 +30,8 @@ function CarFilter(props) {
 
     // const completeVehURL = `https://apis.solarialabs.com/shine/v1/vehicle-stats/specs?make=${makeSelect}&model=${modelSelect}&year=${year}&full-data=true&apikey=${apiKeyStats}`;
     // var carImagesURL = `https://api.carsxe.com/images?key=e8kazl88v_mbh876r64_w6ouszltm&year=${year}&make=${makeSelect}&model=${modelSelect}&trim=${vehTrimSelect}&format=json`;
-    var carImagesURL = `https://api.carsxe.com/images?key=e8kazl88v_mbh876r64_w6ouszltm&year=2021&make=kia&model=k5&trim=gt-line&format=json`;
+
+    // var carImagesURL = `https://api.carsxe.com/images?key=e8kazl88v_mbh876r64_w6ouszltm&year=2021&make=kia&model=k5&trim=gt-line&format=json`;
 
     var makesURL = `https://vehapi.com/api/v1/car-lists/get/car/makes/${year}`;
 
@@ -56,18 +55,18 @@ function CarFilter(props) {
         authorization: `Bearer ${apiKey}`,
     };
 
-    var myHeaders2 = new Headers();
-        // myHeaders2.append("Content-Type", "application/json");
-        // myHeaders2.append("X-Requested-With", "XMLHttpRequest");
-        myHeaders2.append('Access-Control-Allow-Methods', 'GET', 'OPTIONS');
-        myHeaders2.append("Access-Control-Allow-Origin", "*" )
+    // var myHeaders2 = new Headers();
+    //     // myHeaders2.append("Content-Type", "application/json");
+    //     // myHeaders2.append("X-Requested-With", "XMLHttpRequest");
+    //     myHeaders2.append('Access-Control-Allow-Methods', 'GET', 'OPTIONS');
+    //     myHeaders2.append("Access-Control-Allow-Origin", "*" )
 
-    var requestOptions2 = {
-        mode: 'no-cors',
-        origin: "http://localhost:3000",
-        method: 'GET',
-        headers: myHeaders2,
-    };
+    // var requestOptions2 = {
+    //     mode: 'no-cors',
+    //     origin: "http://localhost:3000",
+    //     method: 'GET',
+    //     headers: myHeaders2,
+    // };
 
     const handleSelectYear=(e)=>{
         setYear(e.target.value);
@@ -111,12 +110,12 @@ function CarFilter(props) {
     },[modelSelect]);
 
     useEffect(()=>{
-        fetch(carImagesURL, requestOptions2)
-        .then(r => r.json(0))
-        .then(data => setCarImages(data))
-        .catch(e => console.log(e))
+        // fetch(carImagesURL, requestOptions2)
+        // .then(r => r.json(0))
+        // .then(data => setCarImages(data))
+        // .catch(e => console.log(e))
         console.log("Vehicle Selected: " + completeVehicle2)
-        console.log("Vehicle Selected: " + carImages)
+        // console.log("Vehicle Selected: " + carImages)
         props.onChange(completeVehicle2)
         // carYear.onChange(year);
         // carMake.onChange(makeSelect);
@@ -185,24 +184,23 @@ function CarFilter(props) {
             ))}
         </select>
 
-        <div>
+        {/* <div>
             {
-                        carImages.images?.map((car, index) => (
-                        <div className='box' id='car1'> 
-                            { car.thumbnailLink != 'N/A'?       
-                                <div>
-                                    <a>
-                                        <img className="imgCar" src={car.thumbnailLink} alt='Vehicle Poster'/>
-                                    </a>
-                                </div> : ''
-                            }
-                        </div>
-                    ))
+            carImages.images?.map((car, index) => (
+                <div className='box' id='car1'> 
+                    { car.thumbnailLink != 'N/A'?       
+                        <div>
+                            <a>
+                                <img className="imgCar" src={car.thumbnailLink} alt='Vehicle Poster'/>
+                            </a>
+                        </div> : ''
                     }
-                    </div>
+                </div>
+            ))
+            }
+        </div> */}
         </>
     )    
-        // }
 }
 
 export default CarFilter;
