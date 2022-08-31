@@ -38,7 +38,7 @@ function VehicleInfoEx() {
                     <li>N/A</li>
                     <li>N/A</li>
                     <li>N/A</li>
-                    <li>N/A</li>
+                    <li>N/A</li><br/>
                     <li>N/A</li>
                     <li>N/A</li>
                     <li>N/A</li>
