@@ -1,9 +1,9 @@
 import '../AppController.css';
 import React from 'react';
 import LightsTable from '../LightsTable/LightsTable';
-import VehicleFav1 from '../VehiclesFav/VehicleFav1';
-import VehicleFav2 from '../VehiclesFav/VehicleFav2';
-import VehicleFav3 from '../VehiclesFav/VehicleFav3';
+import VehicleFav1 from '../VehiclesFav/vehicleFav1';
+import VehicleFav2 from '../VehiclesFav/vehicleFav2';
+import VehicleFav3 from '../VehiclesFav/vehicleFav3';
 import { useEffect, useState } from 'react';
 
 const Home = () => {
