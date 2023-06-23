@@ -126,23 +126,3 @@
     align-self: center;
   }
 }
-/* @media all and (max-width:430px) {
-  .imgLight {
-    padding: 1px;
-    margin: 1px;
-    width: 2em;
-    height: 2em;
-  }
-  .second {
-    text-align: center;
-    padding-left: 0.5em;
-    font-size: 0.6em;
-  }
-  .flex-row.first, .first2 {
-    width:15%;
-  }
-  .flex-row {
-    width: 85%;
-    flex-wrap: wrap;
-  }
-} */
