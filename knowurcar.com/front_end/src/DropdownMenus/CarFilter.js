@@ -26,7 +26,7 @@ function CarFilter(props) {
     const completeVehicle = `/${year}/${makeSelect}/${modelSelect}/${vehTrimSelect}`;
     const completeVehicle2 = completeVehicle.replace(/ /g, '-');
 
-    // var apiKeyStats = 'notValidAPIAnymore';
+    // var apiKeyStats = 'gQuXRTw6a2SLMdd8NxYhv9bABrjAGxD7';
 
     // const completeVehURL = `https://apis.solarialabs.com/shine/v1/vehicle-stats/specs?make=${makeSelect}&model=${modelSelect}&year=${year}&full-data=true&apikey=${apiKeyStats}`;
     // var carImagesURL = `https://api.carsxe.com/images?key=e8kazl88v_mbh876r64_w6ouszltm&year=${year}&make=${makeSelect}&model=${modelSelect}&trim=${vehTrimSelect}&format=json`;
@@ -39,7 +39,7 @@ function CarFilter(props) {
     
     // var modelsURL = `https://vpic.nhtsa.dot.gov/api/vehicles/getmodelsformakeyear/make/${make}/modelyear/${year}?format=json`;
 
-    var apiKey = 'notValidAPIAnymore';
+    var apiKey = '0NEBVTUCJUVxiMmj8eQjvjFH7VxCuvwp55IgqT3G';
 
     var trimsURL= `https://vehapi.com/api/v1/car-lists/get/car/trims/${year}/${makeSelect}/${modelSelect}`;
 
@@ -183,6 +183,22 @@ function CarFilter(props) {
                 </option>
             ))}
         </select>
+
+        {/* <div>
+            {
+            carImages.images?.map((car, index) => (
+                <div className='box' id='car1'> 
+                    { car.thumbnailLink != 'N/A'?       
+                        <div>
+                            <a>
+                                <img className="imgCar" src={car.thumbnailLink} alt='Vehicle Poster'/>
+                            </a>
+                        </div> : ''
+                    }
+                </div>
+            ))
+            }
+        </div> */}
         </>
     )    
 }
