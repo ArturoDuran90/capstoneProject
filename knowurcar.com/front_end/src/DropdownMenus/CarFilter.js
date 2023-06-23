@@ -88,40 +88,40 @@ function CarFilter(props) {
         console.log("Trim: " + (e.target.value));
     }
 
-    useEffect(() => {
-        fetch(makesURL, requestOptions)
-        .then(r => r.json(0))
-        .then(data => setMake(data))
-        .catch(e => console.log(e));
-    },[year]);
+    // useEffect(() => {
+    //     fetch(makesURL, requestOptions)
+    //     .then(r => r.json(0))
+    //     .then(data => setMake(data))
+    //     .catch(e => console.log(e));
+    // },[year]);
 
-    useEffect(() => {
-        fetch(modelsURL, requestOptions)
-        .then(r => r.json(0))
-        .then(data => setModel(data))
-        .catch(e => console.log(e));
-    },[makeSelect]);
+    // useEffect(() => {
+    //     fetch(modelsURL, requestOptions)
+    //     .then(r => r.json(0))
+    //     .then(data => setModel(data))
+    //     .catch(e => console.log(e));
+    // },[makeSelect]);
 
-    useEffect(()=>{
-        fetch(trimsURL, requestOptions)
-        .then(r => r.json(0))
-        .then(data => setTrim(data))
-        .catch(e => console.log(e));
-    },[modelSelect]);
+    // useEffect(()=>{
+    //     fetch(trimsURL, requestOptions)
+    //     .then(r => r.json(0))
+    //     .then(data => setTrim(data))
+    //     .catch(e => console.log(e));
+    // },[modelSelect]);
 
-    useEffect(()=>{
-        // fetch(carImagesURL, requestOptions2)
-        // .then(r => r.json(0))
-        // .then(data => setCarImages(data))
-        // .catch(e => console.log(e))
-        console.log("Vehicle Selected: " + completeVehicle2)
-        // console.log("Vehicle Selected: " + carImages)
-        props.onChange(completeVehicle2)
-        // carYear.onChange(year);
-        // carMake.onChange(makeSelect);
-        // carModel.onChange(modelSelect);
-        // carTrim.onChange(vehTrimSelect);
-    },[vehTrimSelect]);
+    // useEffect(()=>{
+    //     // fetch(carImagesURL, requestOptions2)
+    //     // .then(r => r.json(0))
+    //     // .then(data => setCarImages(data))
+    //     // .catch(e => console.log(e))
+    //     console.log("Vehicle Selected: " + completeVehicle2)
+    //     // console.log("Vehicle Selected: " + carImages)
+    //     props.onChange(completeVehicle2)
+    //     // carYear.onChange(year);
+    //     // carMake.onChange(makeSelect);
+    //     // carModel.onChange(modelSelect);
+    //     // carTrim.onChange(vehTrimSelect);
+    // },[vehTrimSelect]);
 
     return(
         <>
